@@ -7,10 +7,15 @@
     <div class="clearfix">
         <div class="button-group">
             <h1 class="float-left">Proyectos</h1>
-            <a href="#" type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#nuevoProyectoModal">Nuevo</a>
+            <form method="POST" action="{{ route('proyectos.store') }}">
+                @csrf
+                    <!-- @include('admin.proyectos.create') -->
+                <button type="submit"  class="btn btn-primary float-right">Nuevo</button>
+            </form>
+            <!-- <a href="#" type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#nuevoProyectoModal">Nuevo</a> -->
         </div>
     </div>
-    <div class="modal fade" id="nuevoProyectoModal" tabindex="-1" role="dialog" aria-labelledby="nuevoProyectoModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="nuevoProyectoModal" tabindex="-1" role="dialog" aria-labelledby="nuevoProyectoModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -20,7 +25,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <!-- Aquí puedes agregar el formulario de creación de proyectos -->
                     <form method="POST" action="{{ route('proyectos.store') }}">
                     @csrf
                         @include('admin.proyectos.create')
@@ -28,7 +32,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 @stop
 @section('content')
     <div class="container">
@@ -129,7 +133,7 @@
                     <div class="card-body d-flex">
                         <div class="mr-3">
                         <h5 class="card-title mb-1">{{ $proyecto->proyectos }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Subtitulo</h6>
+                        <!-- <h6 class="card-subtitle mb-2 text-muted">Subtitulo</h6> -->
                         <p class="card-text">${{ $proyecto->costoProyecto }}</p>
                         </div>
                         <div class="ml-auto text-right">
@@ -166,7 +170,6 @@
                     <div class="card-body d-flex">
                         <div class="mr-3">
                         <h5 class="card-title mb-1">{{ $proyecto->proyectos }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Subtitulo</h6>
                         <p class="card-text">${{ $proyecto->costoProyecto }}</p>
                         </div>
                         <div class="ml-auto text-right">
@@ -203,7 +206,6 @@
                     <div class="card-body d-flex">
                         <div class="mr-3">
                         <h5 class="card-title mb-1">{{ $proyecto->proyectos }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Subtitulo</h6>
                         <p class="card-text">${{ $proyecto->costoProyecto }}</p>
                         </div>
                         <div class="ml-auto text-right">
@@ -240,7 +242,6 @@
                     <div class="card-body d-flex">
                         <div class="mr-3">
                         <h5 class="card-title mb-1">{{ $proyecto->proyectos }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Subtitulo</h6>
                         <p class="card-text">${{ $proyecto->costoProyecto }}</p>
                         </div>
                         <div class="ml-auto text-right">

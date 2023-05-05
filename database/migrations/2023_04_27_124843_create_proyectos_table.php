@@ -13,29 +13,33 @@ return new class extends Migration
     {
         Schema::create('proyectos', function (Blueprint $table) {
             $table->id();
-            $table->string('proyectos');
-            $table->unsignedBigInteger('municipio_id');
+            $table->string('proyectos')->nullable();
+            $table->unsignedBigInteger('municipio_id')->nullable();
             $table->foreign('municipio_id')->references('id')->on('municipios');
-            $table->decimal('costoProyecto');
-            $table->unsignedBigInteger('estado_id');
+            $table->decimal('costoProyecto')->nullable();
+            $table->unsignedBigInteger('estado_id')->nullable();
             $table->foreign('estado_id')->references('id')->on('estados');
-            $table->string('cliente');
-            $table->string('supervisor');
-            $table->string('telefono');
-            $table->string('correo');
-            $table->text('descripcion');
-            $table->unsignedBigInteger('estado_gestion_id');
+            $table->string('cliente')->nullable();
+            $table->string('supervisor')->nullable();
+            $table->string('telefono')->nullable();
+            $table->string('correo')->nullable();
+            $table->text('descripcion')->nullable();
+            $table->unsignedBigInteger('estado_gestion_id')->nullable();
             $table->foreign('estado_gestion_id')->references('id')->on('estado_gestions');
-            $table->text('objeto');
-            $table->text('alcance');
-            $table->string('anio');
-            $table->string('responsable');
-            $table->string('centro_costos');
-            $table->string('orden_interna');
-            $table->integer('cod_inva');
-            $table->unsignedBigInteger('grupo_proyecto_id');
+            $table->text('objeto')->nullable();
+            $table->text('alcance')->nullable();
+            $table->text('antecedente')->nullable();
+            $table->text('beneficio')->nullable();
+            $table->string('anio')->nullable();
+            $table->date('inicio')->nullable();
+            $table->date('fin')->nullable();
+            $table->string('responsable')->nullable();
+            $table->string('centro_costos')->nullable();
+            $table->string('orden_interna')->nullable();
+            $table->integer('cod_inva')->nullable();
+            $table->unsignedBigInteger('grupo_proyecto_id')->nullable();
             $table->foreign('grupo_proyecto_id')->references('id')->on('grupo_proyectos');
-            $table->unsignedBigInteger('tipo_proyecto_id');
+            $table->unsignedBigInteger('tipo_proyecto_id')->nullable();
             $table->foreign('tipo_proyecto_id')->references('id')->on('tipo_proyectos');
             
             

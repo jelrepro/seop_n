@@ -4,6 +4,7 @@
 
 @section('content_header')
   
+<h1>{{ $proyecto->proyectos }}</h1>
 
 <div style="position: relative;">
     <ul class="nav nav-tabs">
@@ -61,13 +62,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="cliente">Inicio</label>
-                                <input type="date" name="cliente" id="cliente" class="form-control" value="">
+                                <input type="date" name="cliente" id="cliente" class="form-control" value="{{ $proyecto->inicio }}">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="cliente">Fin</label>
-                                <input type="date" name="cliente" id="cliente" class="form-control" value="">
+                                <input type="date" name="cliente" id="cliente" class="form-control" value="{{ $proyecto->fin }}">
                             </div>
                         </div>
                     </div>
@@ -341,8 +342,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="antecente">Antecedentes</label>
-                            <textarea name="antecente" id="antecente" class="form-control"></textarea>
+                            <label for="antecedente">Antecedentes</label>
+                            <textarea name="antecedente" id="antecedente" class="form-control">{{ $proyecto->antecedente }}</textarea>
                         </div>
 
                         <div class="form-group">
@@ -352,7 +353,7 @@
 
                         <div class="form-group">
                             <label for="beneficio">Beneficios</label>
-                            <textarea name="beneficio" id="beneficio" class="form-control"></textarea>
+                            <textarea name="beneficio" id="beneficio" class="form-control">{{ $proyecto->beneficio }}</textarea>
                         </div>
 
                         <div class="form-group" hidden>

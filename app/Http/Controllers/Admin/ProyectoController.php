@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use App\Models\Proyecto;
 use App\Models\Municipio;
 use App\Models\EstadoGestion;
@@ -104,24 +105,34 @@ class ProyectoController extends Controller
         $proyecto = new Proyecto;
 
         $proyecto->proyectos = $request->input('proyectos');
-        $proyecto->municipio_id = $request->input('municipio_id');
+        // $proyecto->municipio_id = $request->input('municipio_id');
+        $proyecto->municipio_id = 1;
         $proyecto->costoProyecto = $request->input('costoProyecto');
-        $proyecto->estado_id = $request->input('estado_id');
+        // $proyecto->estado_id = $request->input('estado_id');
+        $proyecto->estado_id = 1;
         $proyecto->cliente = $request->input('cliente');
         $proyecto->supervisor = $request->input('supervisor');
         $proyecto->telefono = $request->input('telefono');
         $proyecto->correo = $request->input('correo');
         $proyecto->descripcion = $request->input('descripcion');
-        $proyecto->estado_gestion_id = $request->input('estado_gestion_id');
+        // $proyecto->estado_gestion_id = $request->input('estado_gestion_id');
+        $proyecto->estado_gestion_id = 1;
         $proyecto->objeto = $request->input('objeto');
         $proyecto->alcance = $request->input('alcance');
-        $proyecto->anio = $request->input('anio');
+        $proyecto->alcance = $request->input('antecedente');
+        $proyecto->alcance = $request->input('beneficio');
+        // $proyecto->anio = $request->input('anio');
+        $proyecto->anio = date('Y');
+        $proyecto->inicio = Carbon::now();
+        $proyecto->fin = Carbon::now();
         $proyecto->responsable = $request->input('responsable');
         $proyecto->centro_costos = $request->input('centro_costos');
         $proyecto->orden_interna = $request->input('orden_interna');
         $proyecto->cod_inva = $request->input('cod_inva');
-        $proyecto->grupo_proyecto_id = $request->input('grupo_proyecto_id');
-        $proyecto->tipo_proyecto_id = $request->input('tipo_proyecto_id');
+        // $proyecto->grupo_proyecto_id = $request->input('grupo_proyecto_id');
+        $proyecto->grupo_proyecto_id = 1;
+        // $proyecto->tipo_proyecto_id = $request->input('tipo_proyecto_id');
+        $proyecto->tipo_proyecto_id = 1;
 
         $proyecto->save();
 
@@ -186,6 +197,8 @@ class ProyectoController extends Controller
         $proyecto->estado_id = $request->input('estado_id');
         $proyecto->estado_gestion_id = $request->input('estado_gestion_id');
         $proyecto->anio = $request->input('anio');
+        $proyecto->inicio = $request->input('inicio');
+        $proyecto->fin = $request->input('fin');
         $proyecto->responsable = $request->input('responsable');
         $proyecto->centro_costos = $request->input('centro_costos');
         $proyecto->orden_interna = $request->input('orden_interna');
@@ -198,6 +211,8 @@ class ProyectoController extends Controller
         $proyecto->descripcion = $request->input('descripcion');
         $proyecto->objeto = $request->input('objeto');
         $proyecto->alcance = $request->input('alcance');
+        $proyecto->antecedente = $request->input('antecedente');
+        $proyecto->beneficio = $request->input('beneficio');
         $proyecto->grupo_proyecto_id = $request->input('grupo_proyecto_id');
         $proyecto->tipo_proyecto_id = $request->input('tipo_proyecto_id');
 
