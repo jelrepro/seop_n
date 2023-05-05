@@ -344,9 +344,9 @@ return [
             
         ], 
         [
-            'text'        => 'contratos',
-            'url'         => '',
-            'icon'        => 'fas fa-solid fa-folder',
+            'text'        => 'Perfil',
+            'url'         => 'user/profile',
+            'icon'        => 'fas fa-solid fa-user',
             
         ], 
         // [

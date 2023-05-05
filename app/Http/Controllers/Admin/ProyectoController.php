@@ -157,7 +157,7 @@ class ProyectoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Proyecto $proyecto)
+    public function updatei(Request $request, Proyecto $proyecto)
     {
         $proyecto->update($request->all());
 
@@ -177,6 +177,49 @@ class ProyectoController extends Controller
             'gruposProyecto' => $gruposProyecto
         ]);
     }
+
+    public function update(Request $request, Proyecto $proyecto)
+    {
+        $proyecto->proyectos = $request->input('proyectos');
+        $proyecto->municipio_id = $request->input('municipio_id');
+        $proyecto->costoProyecto = $request->input('costoProyecto');
+        $proyecto->estado_id = $request->input('estado_id');
+        $proyecto->estado_gestion_id = $request->input('estado_gestion_id');
+        $proyecto->anio = $request->input('anio');
+        $proyecto->responsable = $request->input('responsable');
+        $proyecto->centro_costos = $request->input('centro_costos');
+        $proyecto->orden_interna = $request->input('orden_interna');
+        $proyecto->cod_inva = $request->input('cod_inva');
+
+        $proyecto->cliente = $request->input('cliente');
+        $proyecto->supervisor = $request->input('supervisor');
+        $proyecto->telefono = $request->input('telefono');
+        $proyecto->correo = $request->input('correo');
+        $proyecto->descripcion = $request->input('descripcion');
+        $proyecto->objeto = $request->input('objeto');
+        $proyecto->alcance = $request->input('alcance');
+        $proyecto->grupo_proyecto_id = $request->input('grupo_proyecto_id');
+        $proyecto->tipo_proyecto_id = $request->input('tipo_proyecto_id');
+
+        $proyecto->save();
+          // Obtener los datos necesarios para la vista edit
+        $municipios = Municipio::all();
+        $estados = Estado::all();
+        $tiposProyecto = tipoProyecto::all();
+        $estadosGestion = EstadoGestion::all();
+        $gruposProyecto = GrupoProyecto::all();
+
+        return view('admin.proyectos.edit', [
+            'proyecto' => $proyecto,
+            'municipios' => $municipios,
+            'estados' => $estados,
+            'estadosGestion' => $estadosGestion,
+            'tiposProyecto' => $tiposProyecto,
+            'gruposProyecto' => $gruposProyecto
+        ]);
+    }
+
+    
 
 
     /**

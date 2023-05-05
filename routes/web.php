@@ -29,4 +29,3 @@ Route::middleware([
 }); 
 
 Route::resource('admin/proyectos', ProyectoController::class);
-
