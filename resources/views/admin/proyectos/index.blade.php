@@ -4,16 +4,6 @@
 
 @section('content_header')
     
-    @if (session('message'))
-        <div class="alert alert-success">
-            <strong>{{session('message')}}</strong>
-        </div>
-    @endif
-    @if (session('danger'))
-        <div class="alert alert-danger" role="alert">
-            <strong>{{session('danger')}}Holaaaaaaaaa</strong>
-        </div>
-    @endif
     <div class="clearfix">
         <div class="button-group">
             <h1 class="float-left">Proyectos</h1>
@@ -158,8 +148,9 @@
                             {{ $proyecto->estado->nombreEstado }}
                             </span>
                             </small>
-                            <!-- <small><a href="#">Editar</a></small> -->
-                            <small><a href="#" data-toggle="modal" data-target="#editarProyectoModal" data-id="{{ $proyecto->id }}">Editar</a></small>
+                            <!-- <small><a href="#">Mostrar</a></small> -->
+                            <small><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></small>
+                            <!-- <small><a href="#" data-toggle="modal" data-target="#editarProyectoModal" data-id="{{ $proyecto->id }}">Editar</a></small> -->
                             <small class="text-muted d-block">{{ $proyecto->responsable }}</small>
                         </div>
                     </div>
@@ -195,7 +186,7 @@
                             </span>
                             </small>
                             <!-- <small><a href="#">Editar</a></small> -->
-                            <small><a href="#" data-toggle="modal" data-target="#editarProyectoModal" data-id="{{ $proyecto->id }}">Editar</a></small>
+                            <small><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></small>
                             <small class="text-muted d-block">{{ $proyecto->responsable }}</small>
                         </div>
                     </div>
@@ -232,7 +223,7 @@
                             </span>
                             </small>
                             <!-- <small><a href="#">Editar</a></small> -->
-                            <small><a href="#" data-toggle="modal" data-target="#editarProyectoModal" data-id="{{ $proyecto->id }}">Editar</a></small>
+                            <small><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></small>
                             <small class="text-muted d-block">{{ $proyecto->responsable }}</small>
                         </div>
                     </div>
@@ -269,7 +260,7 @@
                             </span>
                             </small>
                             <!-- <small><a href="#">Editar</a></small> -->
-                            <small><a href="#" data-toggle="modal" data-target="#editarProyectoModal" data-id="{{ $proyecto->id }}">Editar</a></small>
+                            <small><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></small>
                             <small class="text-muted d-block">{{ $proyecto->responsable }}</small>
                         </div>
                     </div>

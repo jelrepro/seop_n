@@ -256,23 +256,24 @@ return [
     
 
     'usermenu_links' => [
-    [
-        'type' => 'header',
-        'text' => 'User Settings',
+        [
+            'type' => 'header',
+            'text' => 'User Settings',
+        ],
+        [
+            'text' => 'Profile',
+            'url' => '/profile',
+            'icon' => 'fas fa-fw fa-user',
+            'method' => 'get',
+        ],
+        [
+            'text' => 'Logout',
+            'url' => '/logout',
+            'icon' => 'fas fa-fw fa-user',
+            'classes' => 'mt-2',
+            'method' => 'post',
+        ],
     ],
-    [
-        'text' => 'Profile',
-        'url' => '/profile',
-        'icon' => 'fas fa-fw fa-user',
-    ],
-    [
-        'text' => 'Logout',
-        'url' => '/logout',
-        'icon' => 'fas fa-fw fa-power-off',
-        'classes' => 'mt-2',
-        'method' => 'post',
-    ],
-],
 
     /*
     
@@ -305,15 +306,15 @@ return [
 
     'menu' => [
         // Navbar items:
-/*         [
+        [
             'type'         => 'navbar-search',
             'text'         => 'search',
             'topnav_right' => true,
-        ],  */
-        [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
-        ], 
+        ],
+        // [
+        //     'type'         => 'fullscreen-widget',
+        //     'topnav_right' => true,
+        // ], 
       
 
         // Sidebar items:

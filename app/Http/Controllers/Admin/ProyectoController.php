@@ -10,6 +10,7 @@ use App\Models\EstadoGestion;
 use App\Models\Estado;
 use App\Models\GrupoProyecto;
 use App\Models\TipoProyecto;
+// use App\Models\Convenio;
 
 class ProyectoController extends Controller
 {
@@ -141,18 +142,26 @@ class ProyectoController extends Controller
      */
     public function edit(Proyecto $proyecto)
     {
-        $proyecto = Proyecto::find($id);
+        $municipios = Municipio::all();
+        $estados = Estado::all();
+        $estadosGestion = EstadoGestion::all();
+        $gruposProyecto = GrupoProyecto::all();
+        $tiposProyecto = TipoProyecto::all();
 
-        return view('admin.proyectos.edit', compact('proyecto'));
+        return view('admin.proyectos.edit', compact('proyecto', 'municipios', 'tiposProyecto','gruposProyecto','estadosGestion','estados'));
     }
+
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Proyecto $proyecto)
     {
-        //
+        $proyecto->update($request->all());
+
+        return redirect()->route('proyectos.index', $proyecto->id);
     }
+
 
     /**
      * Remove the specified resource from storage.
