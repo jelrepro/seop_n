@@ -14,11 +14,11 @@
     <div class="form-group">
         <label for="municipio_id">Municipio</label>
         <select name="municipio_id" id="municipio_id" class="form-control">
-            <option value="{{ $proyecto->municipio->descripcion }}">{{ $proyecto->municipio->descripcion }}</option>
+            <option value="{{ $proyecto->municipio->id }}">{{ $proyecto->municipio->descripcion }}</option>
             @foreach($municipios as $municipio)
-                <option value="{{ $proyecto->municipio_id }}">{{ $municipio->descripcion }}</option>
+                <option value="{{ $municipio->id }}">{{ $municipio->descripcion }}</option>
             @endforeach
-        </select>
+       </select>
     </div>
 
     <div class="form-group">
@@ -28,9 +28,9 @@
 
     <div class="form-group">
         <label for="estado_id">Estado</label>
-        <select name="estado_id" id="estado_id" class="form-control" value="{{ $proyecto->estado->nombreEstado }}">
+        <select name="estado_id" id="estado_id" class="form-control">
             @foreach($estados as $estado)
-                <option value="{{ $proyecto->estado_id }}">{{ $estado->nombreEstado }}</option>
+                <option value="{{ $estado->id }}" @if($proyecto->estado_id == $estado->id) selected @endif>{{ $estado->nombreEstado }}</option>
             @endforeach
         </select>
     </div>
@@ -62,9 +62,9 @@
 
     <div class="form-group">
         <label for="estado_gestion_id">Estado de gestión</label>
-        <select name="estado_gestion_id" id="estado_gestion_id" class="form-control" value="">
+        <select name="estado_gestion_id" id="estado_gestion_id" class="form-control">
             @foreach($estadosGestion as $estadoGestion)
-                <option value="{{ $proyecto->estado_gestion_id }}">{{ $estadoGestion->nombreEstadoGestion }}</option>
+                <option value="{{ $estadoGestion->id }}" @if($proyecto->estado_gestion_id == $estadoGestion->id) selected @endif>{{ $estadoGestion->nombreEstadoGestion }}</option>
             @endforeach
         </select>
     </div>
@@ -121,6 +121,7 @@
             @endforeach
         </select>
     </div>
+    <a href="{{ route('proyectos.index', $proyecto) }}" class="btn btn-primary" title="Volver"><i class="fa-solid fa-rotate-left"></i> Volver</a>
 
     <button type="submit" class="btn btn-primary">Editar proyecto</button>
 </form>

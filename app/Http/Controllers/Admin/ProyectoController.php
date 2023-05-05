@@ -134,7 +134,9 @@ class ProyectoController extends Controller
      */
     public function show(Proyecto $proyecto)
     {
-        //
+       
+
+        return view('admin.proyectos.show',compact('proyecto'));
     }
 
     /**
@@ -159,7 +161,21 @@ class ProyectoController extends Controller
     {
         $proyecto->update($request->all());
 
-        return redirect()->route('proyectos.index', $proyecto->id);
+          // Obtener los datos necesarios para la vista edit
+        $municipios = Municipio::all();
+        $estados = Estado::all();
+        $tiposProyecto = tipoProyecto::all();
+        $estadosGestion = EstadoGestion::all();
+        $gruposProyecto = GrupoProyecto::all();
+
+        return view('admin.proyectos.edit', [
+            'proyecto' => $proyecto,
+            'municipios' => $municipios,
+            'estados' => $estados,
+            'estadosGestion' => $estadosGestion,
+            'tiposProyecto' => $tiposProyecto,
+            'gruposProyecto' => $gruposProyecto
+        ]);
     }
 
 

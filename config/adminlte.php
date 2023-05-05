@@ -338,8 +338,14 @@ return [
             'label_color' => 'success',
         ], */
         [
-            'text'        => 'Proyectos',
+            'text'        => 'Obras',
             'url'         => 'admin/proyectos',
+            'icon'        => 'fas fa-solid fa-folder',
+            
+        ], 
+        [
+            'text'        => 'contratos',
+            'url'         => '',
             'icon'        => 'fas fa-solid fa-folder',
             
         ], 
