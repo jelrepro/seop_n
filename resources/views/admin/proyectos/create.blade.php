@@ -92,8 +92,12 @@
     </div>
 
     <div class="form-group">
-        <label for="responsable">Responsable</label>
-        <input type="text" name="responsable" id="responsable" class="form-control" value="">
+        <label for="responsable_user_id">Responsable</label>
+        <select name="responsable_user_id" id="responsable_user_id" class="form-control">
+            @foreach($users as $user)
+                <option value="{{ $user->id }}">{{ $user->name }}</option>
+            @endforeach
+        </select>
     </div>
 
     <div class="form-group">

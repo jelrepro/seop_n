@@ -33,7 +33,9 @@ return new class extends Migration
             $table->string('anio')->nullable();
             $table->date('inicio')->nullable();
             $table->date('fin')->nullable();
-            $table->string('responsable')->nullable();
+            // $table->string('responsable')->nullable();
+            $table->unsignedBigInteger('responsable_user_id')->nullable();
+            $table->foreign('responsable_user_id')->references('id')->on('users');
             $table->string('centro_costos')->nullable();
             $table->string('orden_interna')->nullable();
             $table->string('cod_inva')->nullable();

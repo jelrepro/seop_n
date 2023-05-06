@@ -37,14 +37,14 @@
                         <input type="text" name="proyectos" id="proyectos" class="form-control" value="{{ $proyecto->proyectos }}">
                     </div>
                     <div class="form-group">
-                            <label for="grupo_proyecto_id">Obra</label>
-                            <select name="grupo_proyecto_id" id="grupo_proyecto_id" class="form-control">
-                                <option value="{{ $proyecto->grupoProyecto->id }}">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</option>
-                                @foreach($gruposProyecto as $grupoProyecto)
-                                    <option value="{{ $grupoProyecto->id }}">{{ $grupoProyecto->nombreGrupoProyecto }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                        <label for="grupo_proyecto_id">Obra</label>
+                        <select name="grupo_proyecto_id" id="grupo_proyecto_id" class="form-control">
+                            <option value="{{ $proyecto->grupoProyecto->id }}">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</option>
+                            @foreach($gruposProyecto as $grupoProyecto)
+                                <option value="{{ $grupoProyecto->id }}">{{ $grupoProyecto->nombreGrupoProyecto }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
@@ -128,9 +128,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="responsable">Responsable</label>
                         <input type="text" name="responsable" id="responsable" class="form-control" value="{{ $proyecto->responsable }}">
+                    </div> -->
+                    <div class="form-group">
+                        <label for="responsable_user_id">Responsable</label>
+                        <select name="responsable_user_id" id="responsable_user_id" class="form-control">
+                            @foreach($users as $user)
+                                <option value="{{ $user->id }}" @if($proyecto->responsable_user_id == $user->id) selected @endif>{{ $user->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <!-- <div class="row">
                         <div class="col-sm-6">
@@ -318,8 +326,12 @@
                         </div>
                     </div>
                     <div class="form-group" hidden>
-                        <label for="responsable">Responsable</label>
-                        <input type="text" name="responsable" id="responsable" class="form-control" value="{{ $proyecto->responsable }}">
+                        <label for="responsable_user_id">Responsable</label>
+                        <select name="responsable_user_id" id="responsable_user_id" class="form-control">
+                            @foreach($users as $user)
+                                <option value="{{ $user->id }}" @if($proyecto->responsable_user_id == $user->id) selected @endif>{{ $user->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <!-- <div class="row">
                         <div class="col-sm-6">
@@ -433,6 +445,14 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group" hidden>
+                                <label for="responsable_user_id">Responsable</label>
+                                <select name="responsable_user_id" id="responsable_user_id" class="form-control">
+                                    @foreach($users as $user)
+                                        <option value="{{ $user->id }}" @if($proyecto->responsable_user_id == $user->id) selected @endif>{{ $user->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -496,10 +516,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group" hidden>
-                        <label for="responsable">Responsable</label>
-                        <input type="text" name="responsable" id="responsable" class="form-control" value="{{ $proyecto->responsable }}">
-                    </div>
+                    
                     <!-- <div class="row">
                         <div class="col-sm-6">
                             

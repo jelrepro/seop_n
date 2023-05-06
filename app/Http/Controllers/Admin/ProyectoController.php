@@ -11,14 +11,15 @@ use App\Models\EstadoGestion;
 use App\Models\Estado;
 use App\Models\GrupoProyecto;
 use App\Models\TipoProyecto;
+use App\Models\User;
 // use App\Models\Convenio;
 
 class ProyectoController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth.admin')->except(['index', 'show']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth.admin')->except(['index', 'show']);
+    // }
     /**
      * Display a listing of the resource.
      */
@@ -85,8 +86,9 @@ class ProyectoController extends Controller
         $estadosGestion = EstadoGestion::all();
         $gruposProyecto = GrupoProyecto::all();
         $tiposProyecto = TipoProyecto::all();
+        $users = User::all();
 
-        return view('admin.proyectos.index', compact('tiposProyecto','gruposProyecto','estadosGestion','estados','proyectos', 'totalCostoP', 'totalCostoD','totalCostoC','totalCostoS','totalCostoE','contadorInicio','contadorPlaneacion','contadorEjecucion','contadorCierre','totalCostoPD','contadorPD', 'municipios'));
+        return view('admin.proyectos.index', compact('users','tiposProyecto','gruposProyecto','estadosGestion','estados','proyectos', 'totalCostoP', 'totalCostoD','totalCostoC','totalCostoS','totalCostoE','contadorInicio','contadorPlaneacion','contadorEjecucion','contadorCierre','totalCostoPD','contadorPD', 'municipios'));
     }
 
     /**
@@ -130,7 +132,7 @@ class ProyectoController extends Controller
         $proyecto->anio = date('Y');
         $proyecto->inicio = Carbon::now();
         $proyecto->fin = Carbon::now();
-        $proyecto->responsable = $request->input('responsable');
+        // $proyecto->responsable = $request->input('responsable');
         $proyecto->centro_costos = $request->input('centro_costos');
         $proyecto->orden_interna = $request->input('orden_interna');
         $proyecto->cod_inva = $request->input('cod_inva');
@@ -138,6 +140,7 @@ class ProyectoController extends Controller
         $proyecto->grupo_proyecto_id = 1;
         // $proyecto->tipo_proyecto_id = $request->input('tipo_proyecto_id');
         $proyecto->tipo_proyecto_id = 1;
+        $proyecto->responsable_user_id = 1;
 
         $proyecto->save();
 
@@ -165,8 +168,9 @@ class ProyectoController extends Controller
         $estadosGestion = EstadoGestion::all();
         $gruposProyecto = GrupoProyecto::all();
         $tiposProyecto = TipoProyecto::all();
+        $users = User::all();
 
-        return view('admin.proyectos.edit', compact('proyecto', 'municipios', 'tiposProyecto','gruposProyecto','estadosGestion','estados'));
+        return view('admin.proyectos.edit', compact('users','proyecto', 'municipios', 'tiposProyecto','gruposProyecto','estadosGestion','estados'));
     }
 
 
@@ -204,7 +208,7 @@ class ProyectoController extends Controller
         $proyecto->anio = $request->input('anio');
         $proyecto->inicio = $request->input('inicio');
         $proyecto->fin = $request->input('fin');
-        $proyecto->responsable = $request->input('responsable');
+        // $proyecto->responsable = $request->input('responsable');
         $proyecto->centro_costos = $request->input('centro_costos');
         $proyecto->orden_interna = $request->input('orden_interna');
         $proyecto->cod_inva = $request->input('cod_inva');
@@ -220,6 +224,7 @@ class ProyectoController extends Controller
         $proyecto->beneficio = $request->input('beneficio');
         $proyecto->grupo_proyecto_id = $request->input('grupo_proyecto_id');
         $proyecto->tipo_proyecto_id = $request->input('tipo_proyecto_id');
+        $proyecto->responsable_user_id = $request->input('responsable_user_id');
 
         $proyecto->save();
           // Obtener los datos necesarios para la vista edit
@@ -228,6 +233,7 @@ class ProyectoController extends Controller
         $tiposProyecto = tipoProyecto::all();
         $estadosGestion = EstadoGestion::all();
         $gruposProyecto = GrupoProyecto::all();
+        $users = User::all();
 
         return view('admin.proyectos.edit', [
             'proyecto' => $proyecto,
@@ -235,7 +241,8 @@ class ProyectoController extends Controller
             'estados' => $estados,
             'estadosGestion' => $estadosGestion,
             'tiposProyecto' => $tiposProyecto,
-            'gruposProyecto' => $gruposProyecto
+            'gruposProyecto' => $gruposProyecto,
+            'users' => $users,
         ]);
     }
 
