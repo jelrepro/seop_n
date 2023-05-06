@@ -20,7 +20,8 @@ class ProyectoController extends Controller
      */
     public function index()
     {
-        $proyectos = Proyecto::all();
+        // $proyectos = Proyecto::all();
+        $proyectos = Proyecto::with('grupoProyecto')->get();
 
         $totalCostoP = 0;
 

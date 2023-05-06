@@ -137,8 +137,8 @@
                 <div class="card">
                     <div class="card-body d-flex">
                         <div class="mr-3">
-                        <h5 class="card-title mb-1">{{ $proyecto->proyectos }}</h5>
-                        <!-- <h6 class="card-subtitle mb-2 text-muted">Subtitulo</h6> -->
+                        <h5 class="card-title mb-1">{{ $proyecto->cod_inva }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h6>
                         <p class="card-text">${{ $proyecto->costoProyecto }}</p>
                         </div>
                         <div class="ml-auto text-right">

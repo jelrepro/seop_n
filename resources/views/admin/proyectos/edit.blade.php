@@ -4,7 +4,7 @@
 
 @section('content_header')
   
-<h1>{{ $proyecto->proyectos }}</h1>
+<h4>{{ $proyecto->cod_inva }}</h4>
 
 <div style="position: relative;">
     <ul class="nav nav-tabs">
@@ -37,7 +37,7 @@
                         <input type="text" name="proyectos" id="proyectos" class="form-control" value="{{ $proyecto->proyectos }}">
                     </div>
                     <div class="form-group">
-                            <label for="grupo_proyecto_id">Grupo de proyecto</label>
+                            <label for="grupo_proyecto_id">Obra</label>
                             <select name="grupo_proyecto_id" id="grupo_proyecto_id" class="form-control">
                                 <option value="{{ $proyecto->grupoProyecto->id }}">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</option>
                                 @foreach($gruposProyecto as $grupoProyecto)
@@ -118,7 +118,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="cod_inva">Código INVA</label>
-                                <input type="number" name="cod_inva" id="cod_inva" class="form-control" value="{{ $proyecto->cod_inva }}">
+                                <input type="text" name="cod_inva" id="cod_inva" class="form-control" value="{{ $proyecto->cod_inva }}">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -307,7 +307,7 @@
                         <div class="col-sm-6">
                             <div class="form-group" hidden>
                                 <label for="cod_inva">Código INVA</label>
-                                <input type="number" name="cod_inva" id="cod_inva" class="form-control" value="{{ $proyecto->cod_inva }}">
+                                <input type="text" name="cod_inva" id="cod_inva" class="form-control" value="{{ $proyecto->cod_inva }}">
                             </div>
                         </div>
                         <div class="col-sm-6">
