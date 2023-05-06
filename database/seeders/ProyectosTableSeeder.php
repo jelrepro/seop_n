@@ -34,7 +34,7 @@ class ProyectosTableSeeder extends Seeder
                 'cod_inva' => 'GGS-553-2020',
                 'grupo_proyecto_id' => 1,
                 'tipo_proyecto_id' => 1,
-                'responsable_user_id' => 1,
+                'responsable_user_id' => 6,
             ],
             [
                 'proyectos' => 'RPT ZONA SUR 1',
@@ -76,7 +76,7 @@ class ProyectosTableSeeder extends Seeder
                 'cod_inva' => 'G5C-504-2022',
                 'grupo_proyecto_id' => 1,
                 'tipo_proyecto_id' => 1,
-                'responsable_user_id' => 1,
+                'responsable_user_id' => 2,
             ],
             [
                 'proyectos' => 'GGC-504-2022',
@@ -118,7 +118,7 @@ class ProyectosTableSeeder extends Seeder
                 'cod_inva' => '1212',
                 'grupo_proyecto_id' => 1,
                 'tipo_proyecto_id' => 1,
-                'responsable_user_id' => 1,
+                'responsable_user_id' => 4,
             ],
             [
                 'proyectos' => 'GGC-554-2020',
@@ -139,7 +139,7 @@ class ProyectosTableSeeder extends Seeder
                 'cod_inva' => '402000',
                 'grupo_proyecto_id' => 1,
                 'tipo_proyecto_id' => 1,
-                'responsable_user_id' => 1,
+                'responsable_user_id' => 3,
             ],
             // Agregue más datos si lo desea
         ];

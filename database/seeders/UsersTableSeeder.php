@@ -13,17 +13,12 @@ class UsersTableSeeder extends Seeder
     {
         // Crea un usuario con los datos proporcionados
         User::create([
-            'name' => 'David',
-            'email' => 'david@gmail.com',
-            'password' => Hash::make('David123'),
-        ]);
-        User::create([
             'name' => 'Anderson Lopez',
             'email' => 'anderson.lopez@ceoesp.com',
             'password' => Hash::make('123456789'),
         ]);
         User::create([
-            'name' => 'Carlos Caval',
+            'name' => 'Carlos Cabal',
             'email' => 'carlos.caval@ceoesp.com',
             'password' => Hash::make('123456789'),
         ]);
@@ -48,13 +43,17 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('123456789'),
         ]);
         User::create([
-            'name' => 'user',
-            'email' => 'user@test.com',
-            'password' => Hash::make('123456789'),
-            'role' => 'user',
+            'name' => 'David',
+            'email' => 'david@gmail.com',
+            'password' => Hash::make('David123'),
         ]);
         User::create([
-            'name' => 'admin',
+            'name' => 'User',
+            'email' => 'user@test.com',
+            'password' => Hash::make('123456789'),
+        ]);
+        User::create([
+            'name' => 'Admin',
             'email' => 'admin@test.com',
             'password' => Hash::make('123456789'),
             'role' => 'admin',
