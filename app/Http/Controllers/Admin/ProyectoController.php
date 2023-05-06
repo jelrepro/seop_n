@@ -62,7 +62,7 @@ class ProyectoController extends Controller
             }
         }
 
-        $estadosGestion = [0, 1]; // Arreglo con los estados de gestión que deseas sumar
+        $estadosGestion = [0,1,2,3,4]; // Arreglo con los estados de gestión que deseas sumar
         $totalCostoPD = Proyecto::whereIn('estado_gestion_id', $estadosGestion)->sum('costoProyecto');
         
         
@@ -72,7 +72,7 @@ class ProyectoController extends Controller
         /* $contadorPruebas = Proyecto::where('estado_gestion_id', 3)->count(); */
         $contadorCierre = Proyecto::where('estado_gestion_id', 4)->count();
 
-        $estadosGestion = [0, 1]; // Arreglo con los estados de gestión que deseas contar
+        $estadosGestion = [0,1,2,3,4]; // Arreglo con los estados de gestión que deseas contar
         $contadorPD = Proyecto::whereIn('estado_gestion_id', $estadosGestion)->count();
 
         $municipios = Municipio::all();
@@ -116,7 +116,7 @@ class ProyectoController extends Controller
         $proyecto->correo = $request->input('correo');
         $proyecto->descripcion = $request->input('descripcion');
         // $proyecto->estado_gestion_id = $request->input('estado_gestion_id');
-        $proyecto->estado_gestion_id = 1;
+        $proyecto->estado_gestion_id = 0;
         $proyecto->objeto = $request->input('objeto');
         $proyecto->alcance = $request->input('alcance');
         $proyecto->alcance = $request->input('antecedente');
@@ -136,7 +136,7 @@ class ProyectoController extends Controller
 
         $proyecto->save();
 
-        return redirect()->route('proyectos.index')->with('success', 'Proyecto creado exitosamente.');
+        return redirect()->route('proyectos.index')->with('success', 'Proyecto creado exitosamente.')->with('timeout', 1);
     }
 
 
@@ -242,6 +242,9 @@ class ProyectoController extends Controller
      */
     public function destroy(Proyecto $proyecto)
     {
-        //
+        $proyecto->delete();
+
+        return redirect()->route('proyectos.index')->with('success', 'Proyecto eliminado exitosamente.')->with('timeout', 1);
+
     }
 }

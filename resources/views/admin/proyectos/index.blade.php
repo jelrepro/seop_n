@@ -12,7 +12,11 @@
                     <!-- @include('admin.proyectos.create') -->
                 <button type="submit"  class="btn btn-primary float-right">Nuevo</button>
             </form>
-            <!-- <a href="#" type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#nuevoProyectoModal">Nuevo</a> -->
+            </div><br><br>
+        <div class="button-group">
+            <h1 class="float-left"hidden>.</h1>
+            
+            <h6 class="float-right">$ {{ $totalCostoPD }} <span>({{ $contadorPD }} Obras)</span></h6>
         </div>
     </div>
     <!-- <div class="modal fade" id="nuevoProyectoModal" tabindex="-1" role="dialog" aria-labelledby="nuevoProyectoModalLabel" aria-hidden="true">
@@ -36,6 +40,7 @@
 @stop
 @section('content')
     <div class="container">
+        
         <div class="row">
             <!-- <div class="col-sm-2">
                 <h6>FACTIBILIDAD</h6>
@@ -272,6 +277,11 @@
         </div>
     </div>
 
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+
+
 @stop
 
 @section('css')
@@ -294,25 +304,9 @@
 
 @section('js')
     <script>
-        $(document).on("click", "#editarProyectoModal", function () {
-           var proyectoId = $(this).data("id");
-
-            //Realiza una petición AJAX al servidor para obtener los datos del proyecto.
-           $.ajax({
-                url: "/proyectos/" + proyectoId + "/edit",
-               type: "GET",
-               dataType: "json",
-             success: function (data) {
-                   // Carga los datos del proyecto en los campos del formulario del modal.
-                  $("#nombre").val(data.nombre);
-                    $("#descripcion").val(data.descripcion);
-                    $("#costoProyecto").val(data.costoProyecto);
-                },
-                error: function () {
-                    alert("No se pudo cargar el proyecto.");
-                 },
-            });
-        }); 
+        setTimeout(function() {
+            $('.alert').fadeOut('slow');
+        }, 1000);
 
     </script>
 @stop

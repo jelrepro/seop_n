@@ -200,8 +200,18 @@
                 </div>
 
                 <!-- <a href="{{ route('proyectos.index', $proyecto) }}" class="btn btn-primary" title="Volver"><i class="fa-solid fa-rotate-left"></i> Volver</a> -->
+                <div>
+                    <form method="POST" action="{{ route('proyectos.destroy', $proyecto->id) }}" id="delete-form">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-white btn-hover-danger" value="{{ $proyecto->id }}" onclick="return confirm('¿Está seguro de que desea eliminar este proyecto?')">Eliminar</button>
+                    </form>
 
-                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                    @if(session('success'))
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                    @endif
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                </div>
 
             </form>
         </div>
@@ -379,7 +389,7 @@
                 </div>
 
                 <!-- <a href="{{ route('proyectos.index', $proyecto) }}" class="btn btn-primary" title="Volver"><i class="fa-solid fa-rotate-left"></i> Volver</a> -->
-
+                
                 <button type="submit" class="btn btn-primary">Guardar cambios</button>
 
             </form>
@@ -558,7 +568,7 @@
                 </div>
 
                 <!-- <a href="{{ route('proyectos.index', $proyecto) }}" class="btn btn-primary" title="Volver"><i class="fa-solid fa-rotate-left"></i> Volver</a> -->
-
+                
                 <button type="submit" class="btn btn-primary">Guardar cambios</button>
 
             </form>
@@ -595,60 +605,17 @@
             font-size: 20px;
         }
 
-        /* .tabs {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        } */
-
-        /* .tab {
-            padding: 10px 20px;
-            margin: 0 10px;
-            background-color: #eee;
-            border-radius: 5px 5px 0 0;
-            cursor: pointer;
+        .btn-hover-danger:hover {
+            color: #fff;
+            background-color: #dc3545;
+            border-color: #dc3545;
         }
 
-        .tab:hover {
-            background-color: #ddd;
-        }
-
-        .tab.active {
-            background-color: #fff;
-            border-bottom: 2px solid #000;
-        } */
-
-        /* .tab-content {
-            display: none;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 0 5px 5px 5px;
-        } */
-
-        /* .tab-content.hidden {
-            display: none;
-        } */
     </style>
 @stop
 
 @section('js')
     <script>
-        function changeTab(tab) {
-            // Hide all tab content
-            const tabContents = document.getElementsByClassName('tab-content');
-            for (let i = 0; i < tabContents.length; i++) {
-            tabContents[i].classList.add('hidden');
-            }
-        
-            // Deactivate all tabs
-            const tabs = document.getElementsByClassName('tab');
-            for (let i = 0; i < tabs.length; i++) {
-            tabs[i].classList.remove('active');
-            }
-        
-            // Show selected tab content and activate selected tab
-            document.getElementById('content' + tab.substr(3)).classList.remove('hidden');
-            document.getElementById(tab).classList.add('active');
-        }
+       
     </script>
 @stop
