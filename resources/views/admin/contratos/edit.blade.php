@@ -42,6 +42,11 @@
                 <button type="submit" class="btn btn-primary">Guardar cambios</button>
 
             </form>
+            <form method="POST" action="{{ route('contratos.destroy', $contrato->id) }}" id="delete-form">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-white btn-hover-danger" value="{{ $contrato->id }}" onclick="return confirm('¿Está seguro de que desea eliminar este contrato?')">Eliminar</button>
+            </form>
         </div>
 
         <div class="tab-pane fade" id="ficha">
@@ -53,6 +58,10 @@
         <div class="tab-pane fade" id="anotaciones">
 
         </div>
+
+        @if(session('update'))
+            <div class="alert alert-primary">{{ session('update') }}</div>
+        @endif
     </div>
 
 

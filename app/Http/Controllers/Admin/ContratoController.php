@@ -93,7 +93,7 @@ class ContratoController extends Controller
         $gruposProyecto = GrupoProyecto::all();
         $users = User::all();
 
-        return view('admin.contratos.edit', compact('users','contrato', 'municipios', 'tiposProyecto','gruposProyecto','estadosGestion','estados'));
+        return view('admin.contratos.edit', compact('users','contrato', 'municipios', 'tiposProyecto','gruposProyecto','estadosGestion','estados'))->with('update', 'Contrato actualizado exitosamente.')->with('timeout', 1);
     }
 
     /**
@@ -101,6 +101,8 @@ class ContratoController extends Controller
      */
     public function destroy(Contrato $contrato)
     {
-        //
+        $contrato ->delete();
+
+        return redirect()->route('contratos.index')->with('danger', 'Contrato eliminado exitosamente.')->with('timeout', 1);
     }
 }
