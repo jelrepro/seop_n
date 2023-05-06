@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\ProyectoController;
+use App\Http\Controllers\Admin\ContratoController;
 use App\Http\Controllers\AdminController;
 
 /*
@@ -40,6 +41,9 @@ Route::get('/', function () {
 
 
 Route::resource('admin/proyectos', ProyectoController::class)
+    ->middleware('auth.admin');
+
+Route::resource('admin/contratos', ContratoController::class)
     ->middleware('auth.admin');
 
 
