@@ -143,7 +143,7 @@
                         </div>
                         <div class="ml-auto text-right">
                             <small class="text-muted d-block">
-                            <span class="font-medium rounded-lg m-2 p-1" style=" color:#fff; background-color:
+                            <span class="font-medium rounded-lg m-2 p-1" style=" font-size: 6px; color:#fff; background-color:
                             @if($proyecto->estado_id == 0)
                                 rgb(32,160,59)
                             @elseif($proyecto->estado_id == 1)
@@ -174,12 +174,13 @@
                 <div class="card">
                     <div class="card-body d-flex">
                         <div class="mr-3">
-                        <h5 class="card-title mb-1">{{ $proyecto->proyectos }}</h5>
+                        <h5 class="card-title mb-1">{{ $proyecto->cod_inva }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h6>
                         <p class="card-text">${{ $proyecto->costoProyecto }}</p>
                         </div>
                         <div class="ml-auto text-right">
                             <small class="text-muted d-block">
-                            <span class="font-medium rounded-lg m-2 p-1" style=" color:#fff; background-color:
+                            <span class="font-medium rounded-lg m-2 p-1" style="font-size: 6px; color:#fff; background-color:
                             @if($proyecto->estado_id == 0)
                                 rgb(32,160,59)
                             @elseif($proyecto->estado_id == 1)
@@ -193,8 +194,9 @@
                             {{ $proyecto->estado->nombreEstado }}
                             </span>
                             </small>
-                            <!-- <small><a href="#">Editar</a></small> -->
+                            <!-- <small><a href="#">Mostrar</a></small> -->
                             <small><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></small>
+                            <!-- <small><a href="#" data-toggle="modal" data-target="#editarProyectoModal" data-id="{{ $proyecto->id }}">Editar</a></small> -->
                             <small class="text-muted d-block">{{ $proyecto->responsable }}</small>
                         </div>
                     </div>
@@ -210,12 +212,13 @@
                 <div class="card">
                     <div class="card-body d-flex">
                         <div class="mr-3">
-                        <h5 class="card-title mb-1">{{ $proyecto->proyectos }}</h5>
+                        <h5 class="card-title mb-1">{{ $proyecto->cod_inva }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h6>
                         <p class="card-text">${{ $proyecto->costoProyecto }}</p>
                         </div>
                         <div class="ml-auto text-right">
                             <small class="text-muted d-block">
-                            <span class="font-medium rounded-lg m-2 p-1" style=" color:#fff; background-color:
+                            <span class="font-medium rounded-lg m-2 p-1" style="font-size: 6px; color:#fff; background-color:
                             @if($proyecto->estado_id == 0)
                                 rgb(32,160,59)
                             @elseif($proyecto->estado_id == 1)
@@ -229,8 +232,9 @@
                             {{ $proyecto->estado->nombreEstado }}
                             </span>
                             </small>
-                            <!-- <small><a href="#">Editar</a></small> -->
+                            <!-- <small><a href="#">Mostrar</a></small> -->
                             <small><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></small>
+                            <!-- <small><a href="#" data-toggle="modal" data-target="#editarProyectoModal" data-id="{{ $proyecto->id }}">Editar</a></small> -->
                             <small class="text-muted d-block">{{ $proyecto->responsable }}</small>
                         </div>
                     </div>
@@ -246,12 +250,13 @@
                 <div class="card">
                     <div class="card-body d-flex">
                         <div class="mr-3">
-                        <h5 class="card-title mb-1">{{ $proyecto->proyectos }}</h5>
+                        <h5 class="card-title mb-1">{{ $proyecto->cod_inva }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h6>
                         <p class="card-text">${{ $proyecto->costoProyecto }}</p>
                         </div>
                         <div class="ml-auto text-right">
                             <small class="text-muted d-block">
-                            <span class="font-medium rounded-lg m-2 p-1" style=" color:#fff; background-color:
+                            <span class="font-medium rounded-lg m-2 p-1" style="font-size: 6px; color:#fff; background-color:
                             @if($proyecto->estado_id == 0)
                                 rgb(32,160,59)
                             @elseif($proyecto->estado_id == 1)
@@ -265,8 +270,9 @@
                             {{ $proyecto->estado->nombreEstado }}
                             </span>
                             </small>
-                            <!-- <small><a href="#">Editar</a></small> -->
+                            <!-- <small><a href="#">Mostrar</a></small> -->
                             <small><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></small>
+                            <!-- <small><a href="#" data-toggle="modal" data-target="#editarProyectoModal" data-id="{{ $proyecto->id }}">Editar</a></small> -->
                             <small class="text-muted d-block">{{ $proyecto->responsable }}</small>
                         </div>
                     </div>

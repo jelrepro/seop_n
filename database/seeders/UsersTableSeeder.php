@@ -18,8 +18,33 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('David123'),
         ]);
         User::create([
-            'name' => 'Anderson',
+            'name' => 'Anderson Lopez',
             'email' => 'anderson.lopez@ceoesp.com',
+            'password' => Hash::make('123456789'),
+        ]);
+        User::create([
+            'name' => 'Carlos Caval',
+            'email' => 'carlos.caval@ceoesp.com',
+            'password' => Hash::make('123456789'),
+        ]);
+        User::create([
+            'name' => 'Carol Trejo',
+            'email' => 'carol.trejo@ceoesp.com',
+            'password' => Hash::make('123456789'),
+        ]);
+        User::create([
+            'name' => 'Daniel Castañeda',
+            'email' => 'daniel.castañeda@ceoesp.com',
+            'password' => Hash::make('123456789'),
+        ]);
+        User::create([
+            'name' => 'Edelin Zuñiga',
+            'email' => 'edelin.zuniga@ceoesp.com',
+            'password' => Hash::make('123456789'),
+        ]);
+        User::create([
+            'name' => 'Luis Jaimes',
+            'email' => 'luis.jaimes@ceoesp.com',
             'password' => Hash::make('123456789'),
         ]);
         User::create([
