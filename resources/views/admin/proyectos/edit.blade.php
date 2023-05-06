@@ -32,10 +32,19 @@
                 @method('PUT')
 
                 <div class="container">
-                    <div class="form-group">
+                    <div class="form-group" hidden>
                         <label for="proyectos">Obra</label>
                         <input type="text" name="proyectos" id="proyectos" class="form-control" value="{{ $proyecto->proyectos }}">
                     </div>
+                    <div class="form-group">
+                            <label for="grupo_proyecto_id">Grupo de proyecto</label>
+                            <select name="grupo_proyecto_id" id="grupo_proyecto_id" class="form-control">
+                                <option value="{{ $proyecto->grupoProyecto->id }}">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</option>
+                                @foreach($gruposProyecto as $grupoProyecto)
+                                    <option value="{{ $grupoProyecto->id }}">{{ $grupoProyecto->nombreGrupoProyecto }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
@@ -61,14 +70,14 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="cliente">Inicio</label>
-                                <input type="date" name="cliente" id="cliente" class="form-control" value="{{ $proyecto->inicio }}">
+                                <label for="inicio">Inicio</label>
+                                <input type="date" name="inicio" id="inicio" class="form-control" value="{{ $proyecto->inicio }}">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="cliente">Fin</label>
-                                <input type="date" name="cliente" id="cliente" class="form-control" value="{{ $proyecto->fin }}">
+                                <label for="fin">Fin</label>
+                                <input type="date" name="fin" id="fin" class="form-control" value="{{ $proyecto->fin }}">
                             </div>
                         </div>
                     </div>
@@ -201,19 +210,19 @@
 
                 <!-- <a href="{{ route('proyectos.index', $proyecto) }}" class="btn btn-primary" title="Volver"><i class="fa-solid fa-rotate-left"></i> Volver</a> -->
                 <div>
-                    <form method="POST" action="{{ route('proyectos.destroy', $proyecto->id) }}" id="delete-form">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-white btn-hover-danger" value="{{ $proyecto->id }}" onclick="return confirm('¿Está seguro de que desea eliminar este proyecto?')">Eliminar</button>
-                    </form>
-
-                    @if(session('success'))
-                        <div class="alert alert-success">{{ session('success') }}</div>
-                    @endif
                     <button type="submit" class="btn btn-primary">Guardar cambios</button>
                 </div>
 
             </form>
+            <form method="POST" action="{{ route('proyectos.destroy', $proyecto->id) }}" id="delete-form">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-white btn-hover-danger" value="{{ $proyecto->id }}" onclick="return confirm('¿Está seguro de que desea eliminar este proyecto?')">Eliminar</button>
+            </form>
+
+            @if(session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
         </div>
         <div class="tab-pane fade" id="ficha">
             <form method="POST" action="{{ route('proyectos.update', $proyecto->id) }}">

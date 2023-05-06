@@ -36,7 +36,7 @@ return new class extends Migration
             $table->string('responsable')->nullable();
             $table->string('centro_costos')->nullable();
             $table->string('orden_interna')->nullable();
-            $table->integer('cod_inva')->nullable();
+            $table->string('cod_inva')->nullable();
             $table->unsignedBigInteger('grupo_proyecto_id')->nullable();
             $table->foreign('grupo_proyecto_id')->references('id')->on('grupo_proyectos');
             $table->unsignedBigInteger('tipo_proyecto_id')->nullable();

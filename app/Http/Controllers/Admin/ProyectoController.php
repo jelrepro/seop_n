@@ -244,7 +244,7 @@ class ProyectoController extends Controller
     {
         $proyecto->delete();
 
-        return redirect()->route('proyectos.index')->with('success', 'Proyecto eliminado exitosamente.')->with('timeout', 1);
+        return redirect()->route('proyectos.index')->with('danger', 'Proyecto eliminado exitosamente.')->with('timeout', 1);
 
     }
 }
