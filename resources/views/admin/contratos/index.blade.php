@@ -24,7 +24,7 @@
 @section('content')
 
     <div class="container-fluid">
-        <div class="row d-flex flex-nowrap overflow-auto" style="height: 75vh;">
+        <div class="row d-flex flex-nowrap overflow-auto" style="height: 70vh;">
             <div class="col-sm-4">
                 <h6>PRECONTRACTUAL</h6>
                 @foreach ($contratos as $contrato)

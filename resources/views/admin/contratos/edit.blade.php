@@ -44,6 +44,12 @@
             </form>
         </div>
 
+        <div class="tab-pane fade" id="ficha">
+
+        </div>
+        <div class="tab-pane fade" id="contacto">
+
+        </div>
         <div class="tab-pane fade" id="anotaciones">
 
         </div>

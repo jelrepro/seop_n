@@ -46,11 +46,12 @@ class ContratoController extends Controller
     {
         $contrato = new Contrato;
 
-        $contrato->nombreContrato = $request->input('nombreContrato');
+        $contrato->estado_admin_id = 3;
+        $contrato->estado_id = 1;
 
         $contrato->save();
 
-        return redirect()->route('contrato.index')->with('success', 'Proyecto creado exitosamente.')->with('timeout', 1);
+        return redirect()->route('contratos.index')->with('success', 'Contrato creado exitosamente.')->with('timeout', 1);
     }
 
     /**
