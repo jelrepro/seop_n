@@ -19,15 +19,25 @@ Route::get('/', function () {
     return view('auth.login');
 })->name('home');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/admin.proyectos', function () {
-            return view('admin/proyectos');
-    })->name('/');
-}); 
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/admin.proyectos', function () {
+//             return view('admin/proyectos');
+//     })->name('/');
+// }); 
+
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+//     'auth.admin'
+// ])->group(function () {
+//     Route::resource('admin/proyectos', ProyectoController::class);
+// });
+
 
 Route::resource('admin/proyectos', ProyectoController::class)
     ->middleware('auth.admin');
