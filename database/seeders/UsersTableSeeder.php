@@ -22,6 +22,17 @@ class UsersTableSeeder extends Seeder
             'email' => 'anderson.lopez@ceoesp.com',
             'password' => Hash::make('123456789'),
         ]);
+        User::create([
+            'name' => 'user',
+            'email' => 'user@test.com',
+            'password' => Hash::make('123456789'),
+        ]);
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@test.com',
+            'password' => Hash::make('123456789'),
+            'role' => 'admin',
+        ]);
     }
 }
 
