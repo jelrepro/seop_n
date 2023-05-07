@@ -646,7 +646,9 @@
         </div>
 
         <div class="tab-pane fade" id="anotaciones">
-            <h1>Hola anotacion</h1>
+            <center>
+            <h1 class="card-subtitle mb-2 text-muted">No hay anotaciones</h1
+            </center>>
         </div>
 
         @if(session('update'))
