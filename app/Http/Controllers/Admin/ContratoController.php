@@ -10,6 +10,7 @@ use App\Models\EstadoGestion;
 use App\Models\User;
 use App\Models\GrupoProyecto;
 use App\Models\TipoProyecto;
+use App\Models\EstadoAdmin;
 use Illuminate\Http\Request;
 
 
@@ -73,8 +74,9 @@ class ContratoController extends Controller
         $gruposProyecto = GrupoProyecto::all();
         $tiposProyecto = TipoProyecto::all();
         $users = User::all();
+        $estadosAdmin = EstadoAdmin::all();
 
-        return view('admin.contratos.edit', compact('users','contrato', 'municipios', 'tiposProyecto','gruposProyecto','estadosGestion','estados'));
+        return view('admin.contratos.edit', compact('estadosAdmin','users','contrato', 'municipios', 'tiposProyecto','gruposProyecto','estadosGestion','estados'));
     }
 
     /**
@@ -83,6 +85,14 @@ class ContratoController extends Controller
     public function update(Request $request, Contrato $contrato)
     {
         $contrato->nombreContrato = $request->input('nombreContrato');
+        $contrato->estado_id = $request->input('estado_id');
+        $contrato->estado_admin_id = $request->input('estado_admin_id');
+        $contrato->costoContrato = $request->input('costoContrato');
+        $contrato->proyeccion = $request->input('proyeccion');
+        $contrato->descripcion = $request->input('descripcion');
+        $contrato->objeto = $request->input('objeto');
+        $contrato->alcance = $request->input('alcance');
+
 
         $contrato -> save();
 
@@ -92,8 +102,10 @@ class ContratoController extends Controller
         $estadosGestion = EstadoGestion::all();
         $gruposProyecto = GrupoProyecto::all();
         $users = User::all();
+        $estadosAdmin = EstadoAdmin::all();
+        
 
-        return view('admin.contratos.edit', compact('users','contrato', 'municipios', 'tiposProyecto','gruposProyecto','estadosGestion','estados'))->with('update', 'Contrato actualizado exitosamente.')->with('timeout', 1);
+        return view('admin.contratos.edit', compact('estadosAdmin','users','contrato', 'municipios', 'tiposProyecto','gruposProyecto','estadosGestion','estados'))->with('update', 'Contrato actualizado exitosamente.')->with('timeout', 1);
     }
 
     /**

@@ -13,7 +13,7 @@ class EstadosAdminTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('estados_admin')->insert([
+        DB::table('estado_admins')->insert([
             ['id' => 0, 'nombreEstadosAdmin' => 'LIQUIDACION'],
             ['id' => 1, 'nombreEstadosAdmin' => 'EJECUCION'],
             ['id' => 2, 'nombreEstadosAdmin' => 'CONTRACTUAL'],

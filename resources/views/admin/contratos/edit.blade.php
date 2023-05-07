@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar Obras')
+@section('title', 'Editar Contrato')
 
 @section('content_header')
   
@@ -12,10 +12,10 @@
             <a class="nav-link active" data-toggle="tab" href="#general">General</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#ficha">Ficha</a>
+            <a class="nav-link" data-toggle="tab" href="#contratista">Contratista</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#contacto">Contacto</a>
+            <a class="nav-link" data-toggle="tab" href="#variables">Variables</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#anotaciones">Anotaciones</a>
@@ -32,12 +32,80 @@
                 @method('PUT')
                 
                 <div class="container">
-                    <div class="form-group">
+                    <div class="form-group" hidden>
                         <label for="nombreContrato">Contrato</label>
                         <input type="text" name="nombreContrato" id="nombreContrato" class="form-control" value="{{ $contrato->nombreContrato }}">
                     </div>
 
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="estado_id">Estado</label>
+                                <select name="estado_id" id="estado_id" class="form-control">
+                                    @foreach($estados as $estado)
+                                        <option value="{{ $estado->id }}" @if($contrato->estado_id == $estado->id) selected @endif>{{ $estado->nombreEstado }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="estado_admin_id">Etapa</label>
+                                <select name="estado_admin_id" id="estado_admin_id" class="form-control">
+                                    @foreach($estadosAdmin as $estadoAdmin)
+                                        <option value="{{ $estadoAdmin->id }}" @if($contrato->estado_admin_id == $estadoAdmin->id) selected @endif>{{ $estadoAdmin->nombreEstadosAdmin }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="inicio">Inicio</label>
+                                <input type="date" name="inicio" id="inicio" class="form-control" value="{{ $contrato->inicio }}">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="fin">Fin</label>
+                                <input type="date" name="fin" id="fin" class="form-control" value="{{ $contrato->fin }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="costoContrato">Costo</label>
+                                <input type="text" name="costoContrato" id="costoContrato" class="form-control" value="{{ $contrato->costoContrato }}">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="proyeccion">Proyeccion</label>
+                                <input type="text" name="proyeccion" id="proyeccion" class="form-control" value="{{ $contrato->proyeccion }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="descripcion">Descripción</label>
+                            <textarea name="descripcion" id="descripcion" class="form-control">{{ $contrato->descripcion }}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="objeto">Objeto</label>
+                            <textarea name="objeto" id="objeto" class="form-control">{{ $contrato->objeto }}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="alcance">Alcance</label>
+                            <textarea name="alcance" id="alcance" class="form-control">{{ $contrato->alcance }}</textarea>
+                        </div>
+
+                </div>
 
                 <button type="submit" class="btn btn-primary">Guardar cambios</button>
 
@@ -49,10 +117,10 @@
             </form>
         </div>
 
-        <div class="tab-pane fade" id="ficha">
+        <div class="tab-pane fade" id="contratista">
 
         </div>
-        <div class="tab-pane fade" id="contacto">
+        <div class="tab-pane fade" id="varibles">
 
         </div>
         <div class="tab-pane fade" id="anotaciones">

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('estados_admin', function (Blueprint $table) {
+        Schema::create('estado_admins', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->primary();
             $table->string('nombreEstadosAdmin');
             $table->timestamps();
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('estados_admin');
+        Schema::dropIfExists('estados_admins');
     }
 };

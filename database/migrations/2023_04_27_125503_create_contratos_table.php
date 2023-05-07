@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('contratos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('estado_admin_id')->nullable();
-            $table->foreign('estado_admin_id')->references('id')->on('estados_admin');
+            $table->foreign('estado_admin_id')->references('id')->on('estado_admins');
             $table->unsignedBigInteger('proyecto_id')->nullable();
             $table->foreign('proyecto_id')->references('id')->on('proyectos');
             $table->string('nombreContrato')->nullable();
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('u')->nullable();
             $table->unsignedBigInteger('estado_id')->nullable();
             $table->foreign('estado_id')->references('id')->on('estados');
-            $table->string('objecto')->nullable();
+            $table->string('objeto')->nullable();
             $table->string('alcance')->nullable();
             $table->integer('costoContrato')->nullable();
             $table->integer('proyeccion')->nullable();
