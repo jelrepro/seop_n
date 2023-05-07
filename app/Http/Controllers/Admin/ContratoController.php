@@ -102,6 +102,19 @@ class ContratoController extends Controller
         $contrato->noCuenta = $request->input('nocuenta');
         $contrato->tipoCuenta = $request->input('tipoCuenta');
         
+        $contrato->k = $request->input('k');
+        $contrato->a = $request->input('a');
+        $contrato->i = $request->input('i');
+        $contrato->u = $request->input('u');
+        $contrato->anticipo = $request->input('anticipo');
+        $contrato->amortizacion = $request->input('amortizacion');
+        $contrato->regarantia = $request->input('regarantia');
+        $contrato->reteica = $request->input('reteica');
+        $contrato->retefuente = $request->input('retefuente');
+        $contrato->reteiva = $request->input('reteiva');
+        $contrato->ordenCompra = $request->input('ordenCompra');
+        $contrato->noSolped = $request->input('noSolped');
+        
         $contrato -> save();
 
         $municipios = Municipio::all();
