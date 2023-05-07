@@ -93,7 +93,15 @@ class ContratoController extends Controller
         $contrato->objeto = $request->input('objeto');
         $contrato->alcance = $request->input('alcance');
 
-
+        $contrato->contratista = $request->input('contratista');
+        $contrato->nit = $request->input('nit');
+        // $contrato->responsable = $request->input('responsable');
+        $contrato->telefono = $request->input('telefono');
+        $contrato->correo = $request->input('correo');
+        $contrato->banco = $request->input('banco');
+        $contrato->noCuenta = $request->input('nocuenta');
+        $contrato->tipoCuenta = $request->input('tipoCuenta');
+        
         $contrato -> save();
 
         $municipios = Municipio::all();
