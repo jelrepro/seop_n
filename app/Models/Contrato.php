@@ -41,6 +41,11 @@ class Contrato extends Model
         'noCuenta',
     ];
 
+    public function responsable()
+    {
+        return $this->belongsTo(User::class, 'responsable_user_id');
+    }
+
     public function estadoAdmin()
     {
         return $this->belongsTo(EstadoAdmin::class);

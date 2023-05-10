@@ -23,7 +23,7 @@ class Proyecto extends Model
         'alcance',
         'estado_admin_id',
         'anio',
-        'responsable',
+        'responsable_user_id',
         'centro_costos',
         'orden_interna',
         'cod_innva',
@@ -31,6 +31,11 @@ class Proyecto extends Model
         'grupo_proyecto_id',
     ];
 
+    public function responsable()
+    {
+        return $this->belongsTo(User::class, 'responsable_user_id');
+    }
+    
     public function user()
     {
         return $this->belongsTo(User::class);

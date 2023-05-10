@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('estado_admin_id')->nullable();
             $table->foreign('estado_admin_id')->references('id')->on('estado_admins');
-            $table->unsignedBigInteger('proyecto_id')->nullable();
-            $table->foreign('proyecto_id')->references('id')->on('proyectos');
+            // $table->unsignedBigInteger('proyecto_id')->nullable();
+            // $table->foreign('proyecto_id')->references('id')->on('proyectos');
             $table->string('nombreContrato')->nullable();
             $table->string('contratista')->nullable();
             $table->text('descripcion')->nullable();
@@ -48,6 +48,12 @@ return new class extends Migration
             $table->string('noCuenta')->nullable();
             $table->string('tipo_contrato_id')->nullable();
             $table->text('anotaciones')->nullable();
+
+            $table->date('inicio')->nullable();
+            $table->date('fin')->nullable();
+            $table->unsignedBigInteger('responsable_user_id')->nullable();
+            $table->foreign('responsable_user_id')->references('id')->on('users');
+            
             $table->timestamps();
         });
     }

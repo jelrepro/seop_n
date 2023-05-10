@@ -39,9 +39,8 @@
                     <div class="form-group">
                         <label for="grupo_proyecto_id">Obra</label>
                         <select name="grupo_proyecto_id" id="grupo_proyecto_id" class="form-control">
-                            <option value="{{ $proyecto->grupoProyecto->id }}">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</option>
                             @foreach($gruposProyecto as $grupoProyecto)
-                                <option value="{{ $grupoProyecto->id }}">{{ $grupoProyecto->nombreGrupoProyecto }}</option>
+                                <option value="{{ $grupoProyecto->id }}" @if($proyecto->grupo_proyecto_id == $grupoProyecto->id) selected @endif>{{ $grupoProyecto->nombreGrupoProyecto }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -194,7 +193,7 @@
                             <textarea name="beneficio" id="beneficio" class="form-control"></textarea>
                         </div>
 
-                        <div class="form-group" hidden>
+                        <!-- <div class="form-group" hidden>
                             <label for="grupo_proyecto_id">Grupo de proyecto</label>
                             <select name="grupo_proyecto_id" id="grupo_proyecto_id" class="form-control">
                                 <option value="{{ $proyecto->grupoProyecto->id }}">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</option>
@@ -202,7 +201,7 @@
                                     <option value="{{ $grupoProyecto->id }}">{{ $grupoProyecto->nombreGrupoProyecto }}</option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div> -->
 
                         <div class="form-group" hidden>
                             <label for="tipo_proyecto_id">Tipo de proyecto</label>
@@ -390,9 +389,8 @@
                         <div class="form-group" hidden>
                             <label for="grupo_proyecto_id">Grupo de proyecto</label>
                             <select name="grupo_proyecto_id" id="grupo_proyecto_id" class="form-control">
-                                <option value="{{ $proyecto->grupoProyecto->id }}">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</option>
                                 @foreach($gruposProyecto as $grupoProyecto)
-                                    <option value="{{ $grupoProyecto->id }}">{{ $grupoProyecto->nombreGrupoProyecto }}</option>
+                                    <option value="{{ $grupoProyecto->id }}" @if($proyecto->grupo_proyecto_id == $grupoProyecto->id) selected @endif>{{ $grupoProyecto->nombreGrupoProyecto }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -574,9 +572,8 @@
                         <div class="form-group" hidden>
                             <label for="grupo_proyecto_id">Grupo de proyecto</label>
                             <select name="grupo_proyecto_id" id="grupo_proyecto_id" class="form-control">
-                                <option value="{{ $proyecto->grupoProyecto->id }}">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</option>
                                 @foreach($gruposProyecto as $grupoProyecto)
-                                    <option value="{{ $grupoProyecto->id }}">{{ $grupoProyecto->nombreGrupoProyecto }}</option>
+                                    <option value="{{ $grupoProyecto->id }}" @if($proyecto->grupo_proyecto_id == $grupoProyecto->id) selected @endif>{{ $grupoProyecto->nombreGrupoProyecto }}</option>
                                 @endforeach
                             </select>
                         </div>

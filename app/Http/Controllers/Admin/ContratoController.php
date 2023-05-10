@@ -12,6 +12,7 @@ use App\Models\GrupoProyecto;
 use App\Models\TipoProyecto;
 use App\Models\EstadoAdmin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 
 class ContratoController extends Controller
@@ -47,12 +48,16 @@ class ContratoController extends Controller
     {
         $contrato = new Contrato;
 
+        $contrato->inicio = Carbon::now();
+        $contrato->fin = Carbon::now();
+
         $contrato->estado_admin_id = 3;
         $contrato->estado_id = 1;
+        $contrato->responsable_user_id = 1;
 
         $contrato->save();
 
-        return redirect()->route('contratos.index')->with('success', 'Contrato creado exitosamente.')->with('timeout', 1);
+        return redirect()->route('contratos.index')->with('success_contrato', 'Contrato creado exitosamente.')->with('timeout', 1);
     }
 
     /**
@@ -114,6 +119,10 @@ class ContratoController extends Controller
         $contrato->reteiva = $request->input('reteiva');
         $contrato->ordenCompra = $request->input('ordenCompra');
         $contrato->noSolped = $request->input('noSolped');
+
+        $contrato->inicio = $request->input('inicio');
+        $contrato->fin = $request->input('fin');
+        $contrato->responsable_user_id = $request->input('responsable_user_id');
         
         $contrato -> save();
 
@@ -136,6 +145,6 @@ class ContratoController extends Controller
     {
         $contrato ->delete();
 
-        return redirect()->route('contratos.index')->with('danger', 'Contrato eliminado exitosamente.')->with('timeout', 1);
+        return redirect()->route('contratos.index')->with('danger_contrato', 'Contrato eliminado exitosamente.')->with('timeout', 1);
     }
 }

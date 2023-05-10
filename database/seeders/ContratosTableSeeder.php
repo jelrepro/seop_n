@@ -16,7 +16,7 @@ class ContratosTableSeeder extends Seeder
         $contratos = [
             [
                 'estado_admin_id' => 1,
-                'proyecto_id' => 1,
+                // 'proyecto_id' => 1,
                 'nombreContrato' => 'Contrato 1',
                 'contratista' => 'Empresa A',
                 'descripcion' => 'Descripción del contrato 1',
@@ -52,7 +52,7 @@ class ContratosTableSeeder extends Seeder
             ],
             [
                 'estado_admin_id' => 2,
-                'proyecto_id' => 2,
+                // 'proyecto_id' => 2,
                 'nombreContrato' => 'Contrato 2',
                 'contratista' => 'Empresa B',
                 'descripcion' => 'Descripción del contrato 2',
