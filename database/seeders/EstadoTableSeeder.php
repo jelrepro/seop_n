@@ -17,7 +17,7 @@ class EstadoTableSeeder extends Seeder
             ['id' => 0, 'nombreEstado' => 'ACTIVO'],
             ['id' => 1, 'nombreEstado' => 'CERRADO'],
             ['id' => 2, 'nombreEstado' => 'SUSPENDIDO'],
-            ['id' => 3, 'nombreEstado' => 'PROCESO'],
+            
         ]);
     }
 }

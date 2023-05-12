@@ -45,7 +45,9 @@ Route::resource('admin/proyectos', ProyectoController::class)
 
 Route::resource('admin/contratos', ContratoController::class)
     ->middleware('auth.admin');
-
+    
+Route::resource('admin/usuarios', UsuarioController::class)
+    ->middleware('auth.admin');
 
 Route::get('admin', [AdminController::class, 'index'])
     ->name('admin.index');

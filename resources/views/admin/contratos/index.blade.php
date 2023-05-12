@@ -9,7 +9,7 @@
             <h1 class="float-left">Contratos</h1>
             <form method="POST" action="{{ route('contratos.store') }}">
                 @csrf
-                <button type="submit"  class="btn btn-primary float-right">Nuevo</button>
+                <button type="submit" class="btn btn-primary float-right" style="background-color: purple; color: white;">Nuevo</button>
             </form>
             </div><br><br>
         <div class="button-group">
@@ -25,7 +25,7 @@
 
     <div class="container-fluid">
         <div class="row d-flex flex-nowrap overflow-auto" style="height: 70vh;">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <h6>PRECONTRACTUAL</h6>
                 @foreach ($contratos as $contrato)
                     @if($contrato->estado_admin_id == 3)
@@ -60,7 +60,7 @@
                     @endif
                 @endforeach
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <h6>CONTRACTUAL</h6>
                 @foreach ($contratos as $contrato)
                     @if($contrato->estado_admin_id == 2)                 
@@ -95,7 +95,7 @@
                     @endif
                 @endforeach
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <h6>EJECUCION</h6>
                 @foreach ($contratos as $contrato)
                     @if($contrato->estado_admin_id == 1)
@@ -130,7 +130,7 @@
                     @endif
                 @endforeach
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <h6>LIQUIDACION</h6>
                 @foreach ($contratos as $contrato)
                     @if($contrato->estado_admin_id == 0)

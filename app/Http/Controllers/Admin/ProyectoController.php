@@ -31,7 +31,7 @@ class ProyectoController extends Controller
         $totalCostoP = 0;
 
         foreach ($proyectos as $proyecto) {
-            if ($proyecto->estado_gestion_id == 0) {
+            if ($proyecto->estado_gestion_id == 3) {
                 $totalCostoP += $proyecto->costoProyecto;
             }
         }
@@ -39,7 +39,7 @@ class ProyectoController extends Controller
         $totalCostoD = 0;
 
         foreach ($proyectos as $proyecto) {
-            if ($proyecto->estado_gestion_id == 1) {
+            if ($proyecto->estado_gestion_id == 4){
                 $totalCostoD += $proyecto->costoProyecto;
             }
         }
@@ -47,7 +47,7 @@ class ProyectoController extends Controller
         $totalCostoC = 0;
 
         foreach ($proyectos as $proyecto) {
-            if ($proyecto->estado_gestion_id == 2) {
+            if ($proyecto->estado_gestion_id == 0) {
                 $totalCostoC += $proyecto->costoProyecto;
             }
         }
@@ -55,7 +55,7 @@ class ProyectoController extends Controller
         $totalCostoS = 0;
 
         foreach ($proyectos as $proyecto) {
-            if ($proyecto->estado_gestion_id == 3) {
+            if ($proyecto->estado_gestion_id == 1) {
                 $totalCostoS += $proyecto->costoProyecto;
             }
         }
@@ -63,7 +63,7 @@ class ProyectoController extends Controller
         $totalCostoE = 0;
 
         foreach ($proyectos as $proyecto) {
-            if ($proyecto->estado_gestion_id == 4) {
+            if ($proyecto->estado_gestion_id == 2) {
                 $totalCostoE += $proyecto->costoProyecto;
             }
         }
@@ -71,12 +71,12 @@ class ProyectoController extends Controller
         $estadosGestion = [0,1,2,3,4]; // Arreglo con los estados de gestión que deseas sumar
         $totalCostoPD = Proyecto::whereIn('estado_gestion_id', $estadosGestion)->sum('costoProyecto');
         
-        
-        $contadorInicio = Proyecto::where('estado_gestion_id', 0)->count();
-        $contadorPlaneacion = Proyecto::where('estado_gestion_id', 1)->count();
-        $contadorEjecucion = Proyecto::where('estado_gestion_id', 2)->count();
+        $contadorFactibilidad = Proyecto::where('estado_gestion_id', 3)->count();
+        $contadorInicio = Proyecto::where('estado_gestion_id', 4)->count();
+        $contadorPlaneacion = Proyecto::where('estado_gestion_id', 0)->count();
+        $contadorEjecucion = Proyecto::where('estado_gestion_id', 1)->count();
         /* $contadorPruebas = Proyecto::where('estado_gestion_id', 3)->count(); */
-        $contadorCierre = Proyecto::where('estado_gestion_id', 4)->count();
+        $contadorCierre = Proyecto::where('estado_gestion_id', 2)->count();
 
         $estadosGestion = [0,1,2,3,4]; // Arreglo con los estados de gestión que deseas contar
         $contadorPD = Proyecto::whereIn('estado_gestion_id', $estadosGestion)->count();
@@ -88,7 +88,7 @@ class ProyectoController extends Controller
         $tiposProyecto = TipoProyecto::all();
         $users = User::all();
 
-        return view('admin.proyectos.index', compact('users','tiposProyecto','gruposProyecto','estadosGestion','estados','proyectos', 'totalCostoP', 'totalCostoD','totalCostoC','totalCostoS','totalCostoE','contadorInicio','contadorPlaneacion','contadorEjecucion','contadorCierre','totalCostoPD','contadorPD', 'municipios'));
+        return view('admin.proyectos.index', compact('users','tiposProyecto','gruposProyecto','estadosGestion','estados','proyectos', 'totalCostoP', 'totalCostoD','totalCostoC','totalCostoS','totalCostoE','contadorFactibilidad','contadorInicio','contadorPlaneacion','contadorEjecucion','contadorCierre','totalCostoPD','contadorPD', 'municipios'));
     }
 
     /**
@@ -127,7 +127,6 @@ class ProyectoController extends Controller
         // $proyecto->tipo_proyecto_id = $request->input('tipo_proyecto_id');
         $proyecto->tipo_proyecto_id = 1;
         $proyecto->responsable_user_id = 1;
-
         $proyecto->save();
 
         return redirect()->route('proyectos.index')->with('success', 'Proyecto creado exitosamente.')->with('timeout', 1);
