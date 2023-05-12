@@ -14,6 +14,6 @@ php artisan db:seed --class=EstadosVeredaTableSeeder
 php artisan db:seed --class=VeredasTableSeeder
 php artisan db:seed --class=TipoUsuariosTableSeeder
 php artisan db:seed --class=EstadoUsuarioTableSeeder
-php artisan db:seed --class=UsuariosTableSeeder
+php artisan db:seed --class=ClientesTableSeeder
 # php artisan db:seed --class=ProyectosTableSeeder
 

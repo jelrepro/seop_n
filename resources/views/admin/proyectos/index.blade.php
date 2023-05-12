@@ -21,9 +21,10 @@
     <div class="container-fluid">
         <div class="row d-flex flex-nowrap overflow-auto" style="height: 75vh;">
             <div class="col-sm-4">
-                <h6>Anderson Lopez Chaverra</h6>
+                <h6>FACTIBILIDAD</h6>
+                <p class="font-bold text-black-500 text-left">${{$totalCostoP}} ({{$contadorFactibilidad}} Obras)</p>
                 @foreach ($proyectos as $proyecto)
-                    @if($proyecto->responsable_user_id == 1)
+                    @if($proyecto->estado_gestion_id == 3)
                     <div class="card">
                         <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
                             <div style="flex: 1;">
@@ -56,9 +57,10 @@
                 @endforeach
             </div>
             <div class="col-sm-4">
-                <h6>Carlos Fernando Cabal</h6>
+            <h6>INICIO</h6>
+            <p class="font-bold text-black-500 text-left">${{$totalCostoD}} ({{$contadorInicio}} Obras)</p>
                 @foreach ($proyectos as $proyecto)
-                    @if($proyecto->responsable_user_id == 2)
+                    @if($proyecto->estado_gestion_id == 4)
                     <div class="card">
                         <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
                             <div style="flex: 1;">
@@ -91,9 +93,10 @@
                 @endforeach
             </div>
             <div class="col-sm-4">
-                <h6>Carol Alejandra Trejo</h6>
+            <h6>PLANEACION</h6>
+            <p class="font-bold text-black-500 text-left">${{$totalCostoC}} ({{$contadorPlaneacion}} Obras)</p>
                 @foreach ($proyectos as $proyecto)
-                    @if($proyecto->responsable_user_id == 3)
+                    @if($proyecto->estado_gestion_id == 0)
                     <div class="card">
                         <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
                             <div style="flex: 1;">
@@ -126,9 +129,10 @@
                 @endforeach
             </div>
             <div class="col-sm-4">
-                <h6>Daniel Jose Castañeda</h6>
+            <h6 >Ejecucion</h6>
+            <p class="font-bold text-black-500 text-left">${{$totalCostoS}}  ({{$contadorEjecucion}} Obras)</p>
                 @foreach ($proyectos as $proyecto)
-                    @if($proyecto->responsable_user_id == 4)
+                    @if($proyecto->estado_gestion_id == 1)
                     <div class="card">
                         <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
                             <div style="flex: 1;">
@@ -160,45 +164,12 @@
                     @endif
                 @endforeach
             </div>
+            
             <div class="col-sm-4">
-                <h6>Evelin Estupiñan Zuñiga</h6>
+            <h6>CIERRE</h6>
+            <p class="font-bold text-black-500 text-left">${{$totalCostoE}} ({{$contadorCierre}} Obras)</p>
                 @foreach ($proyectos as $proyecto)
-                    @if($proyecto->responsable_user_id == 5)
-                    <div class="card">
-                        <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
-                            <div style="flex: 1;">
-                                <h1 style="color: rgb(35, 108, 165); font-size: 24px; margin-bottom: 0; padding-bottom: 2px;">{{ $proyecto->cod_inva }}</h1>
-                                <h2 style="font-size: 14px; margin-top: 0;">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h2>
-                                <p style="font-size: 14px; margin-top: 0;">$ {{ $proyecto->costoProyecto }}</p>
-                            </div>
-                            <div style="flex: 1; text-align: right;">
-                                <p style="margin-top: 0;">
-                                <span class="font-medium rounded-lg m-1 p-1 badge" style="color:#fff; background-color:
-                                    @if($proyecto->estado_id == 0)
-                                        rgb(32,160,59)
-                                    @elseif($proyecto->estado_id == 1)
-                                        rgb(255,96,90)
-                                    @elseif($proyecto->estado_id == 2)
-                                        rgb(255,30,13)
-                                    @elseif($proyecto->estado_id == 3)
-                                        rgb(255,193,7)
-                                    @endif
-                                ">
-                                {{ $proyecto->estado->nombreEstado }}
-                                </span>
-                                </p>
-                                <p style="margin-top: 0;"><p><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></p></p>
-                                <p style="margin-top: 0;"><p class="text-muted d-block">{{ $proyecto->responsable->name }}</p></p>
-                            </div>
-                        </div>
-                    </div>
-                    @endif
-                @endforeach
-            </div>
-            <div class="col-sm-4">
-                <h6>Luis Fredy Jaimes</h6>
-                @foreach ($proyectos as $proyecto)
-                    @if($proyecto->responsable_user_id == 6)
+                    @if($proyecto->estado_gestion_id == 2)
                     <div class="card">
                         <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
                             <div style="flex: 1;">
