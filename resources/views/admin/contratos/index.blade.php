@@ -30,30 +30,30 @@
                 @foreach ($contratos as $contrato)
                     @if($contrato->estado_admin_id == 3)
                     <div class="card">
-                        <div class="card-body d-flex">
-                            <div class="mr-3">
-                            <h5 class="card-title mb-1">{{ $contrato->nombreContrato }}</h5>
-                            <!-- <h6 class="card-subtitle mb-2 text-muted"></h6> -->
-                            <p class="card-text">$ {{ $contrato->costoContrato }}</p>
+                        <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
+                            <div style="flex: 1;">
+                                <h1 style="color: rgb(35, 108, 165); font-size: 24px; margin-bottom: 0; padding-bottom: 2px;">{{ $contrato->nombreContrato }}</h1>
+                                <!-- <h2 style="font-size: 14px; margin-top: 0;"></h2> -->
+                                <p style="font-size: 14px; margin-top: 0;">$ {{ $contrato->costoContrato }}</p>
                             </div>
-                            <div class="ml-auto text-right">
-                                <small class="text-muted d-block">
-                                <span class="font-medium rounded-lg m-2 p-1" style="color:#fff; background-color:
-                                @if($contrato->estado_id == 0)
-                                    rgb(32,160,59)
-                                @elseif($contrato->estado_id == 1)
-                                    rgb(255,96,90)
-                                @elseif($contrato->estado_id == 2)
-                                    rgb(255,30,13)
-                                @elseif($contrato->estado_id == 3)
-                                    rgb(255,193,7)
-                                @endif
-                            ">
-                                {{ $contrato->estado->nombreEstado }}
-                                </span>
-                                </small>
-                                <small><a href="{{ route('contratos.edit', $contrato->id) }}">Mostrar</a></small>
-                                <small class="text-muted d-block">{{ $contrato->responsable }}</small>
+                            <div style="flex: 1; text-align: right;">
+                                <p style="margin-top: 0;">
+                                <span class="font-medium rounded-lg m-1 p-1 badge" style="color:#fff; background-color:
+                                        @if($contrato->estado_id == 0)
+                                            rgb(32,160,59)
+                                        @elseif($contrato->estado_id == 1)
+                                            rgb(255,96,90)
+                                        @elseif($contrato->estado_id == 2)
+                                            rgb(255,30,13)
+                                        @elseif($contrato->estado_id == 3)
+                                            rgb(255,193,7)
+                                        @endif
+                                    ">
+                                        {{ $contrato->estado->nombreEstado }}
+                                        </span>
+                                </p>
+                                <p style="margin-top: 0;"><p><a href="{{ route('contratos.edit', $contrato->id) }}">Mostrar</a></p></p>
+                                <p style="margin-top: 0;"><p class="text-muted d-block">{{ $contrato->responsable->name }}</p></p>
                             </div>
                         </div>
                     </div>
@@ -63,32 +63,32 @@
             <div class="col-sm-3">
                 <h6>CONTRACTUAL</h6>
                 @foreach ($contratos as $contrato)
-                    @if($contrato->estado_admin_id == 2)
+                    @if($contrato->estado_admin_id == 2)                 
                     <div class="card">
-                        <div class="card-body d-flex">
-                            <div class="mr-3">
-                            <h5 class="card-title mb-1">{{ $contrato->nombreContrato }}</h5>
-                            <!-- <h6 class="card-subtitle mb-2 text-muted"></h6> -->
-                            <p class="card-text">$ {{ $contrato->costoContrato }}</p>
+                        <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
+                            <div style="flex: 1;">
+                                <h1 style="color: rgb(35, 108, 165); font-size: 24px; margin-bottom: 0; padding-bottom: 2px;">{{ $contrato->nombreContrato }}</h1>
+                                <!-- <h2 style="font-size: 14px; margin-top: 0;"></h2> -->
+                                <p style="font-size: 14px; margin-top: 0;">$ {{ $contrato->costoContrato }}</p>
                             </div>
-                            <div class="ml-auto text-right">
-                                <small class="text-muted d-block">
-                                <span class="font-medium rounded-lg m-2 p-1" style="color:#fff; background-color:
-                                @if($contrato->estado_id == 0)
-                                    rgb(32,160,59)
-                                @elseif($contrato->estado_id == 1)
-                                    rgb(255,96,90)
-                                @elseif($contrato->estado_id == 2)
-                                    rgb(255,30,13)
-                                @elseif($contrato->estado_id == 3)
-                                    rgb(255,193,7)
-                                @endif
-                            ">
-                                {{ $contrato->estado->nombreEstado }}
-                                </span>
-                                </small>
-                                <small><a href="{{ route('contratos.edit', $contrato->id) }}">Mostrar</a></small>
-                                <small class="text-muted d-block">{{ $contrato->responsable }}</small>
+                            <div style="flex: 1; text-align: right;">
+                                <p style="margin-top: 0;">
+                                <span class="font-medium rounded-lg m-1 p-1 badge" style="color:#fff; background-color:
+                                        @if($contrato->estado_id == 0)
+                                            rgb(32,160,59)
+                                        @elseif($contrato->estado_id == 1)
+                                            rgb(255,96,90)
+                                        @elseif($contrato->estado_id == 2)
+                                            rgb(255,30,13)
+                                        @elseif($contrato->estado_id == 3)
+                                            rgb(255,193,7)
+                                        @endif
+                                    ">
+                                        {{ $contrato->estado->nombreEstado }}
+                                        </span>
+                                </p>
+                                <p style="margin-top: 0;"><p><a href="{{ route('contratos.edit', $contrato->id) }}">Mostrar</a></p></p>
+                                <p style="margin-top: 0;"><p class="text-muted d-block">{{ $contrato->responsable->name }}</p></p>
                             </div>
                         </div>
                     </div>
@@ -100,30 +100,30 @@
                 @foreach ($contratos as $contrato)
                     @if($contrato->estado_admin_id == 1)
                     <div class="card">
-                        <div class="card-body d-flex">
-                            <div class="mr-3">
-                            <h5 class="card-title mb-1">{{ $contrato->nombreContrato }}</h5>
-                            <!-- <h6 class="card-subtitle mb-2 text-muted"></h6> -->
-                            <p class="card-text">$ {{ $contrato->costoContrato }}</p>
+                        <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
+                            <div style="flex: 1;">
+                                <h1 style="color: rgb(35, 108, 165); font-size: 24px; margin-bottom: 0; padding-bottom: 2px;">{{ $contrato->nombreContrato }}</h1>
+                                <!-- <h2 style="font-size: 14px; margin-top: 0;"></h2> -->
+                                <p style="font-size: 14px; margin-top: 0;">$ {{ $contrato->costoContrato }}</p>
                             </div>
-                            <div class="ml-auto text-right">
-                                <small class="text-muted d-block">
-                                <span class="font-medium rounded-lg m-2 p-1" style="color:#fff; background-color:
-                                @if($contrato->estado_id == 0)
-                                    rgb(32,160,59)
-                                @elseif($contrato->estado_id == 1)
-                                    rgb(255,96,90)
-                                @elseif($contrato->estado_id == 2)
-                                    rgb(255,30,13)
-                                @elseif($contrato->estado_id == 3)
-                                    rgb(255,193,7)
-                                @endif
-                            ">
-                                {{ $contrato->estado->nombreEstado }}
-                                </span>
-                                </small>
-                                <small><a href="{{ route('contratos.edit', $contrato->id) }}">Mostrar</a></small>
-                                <small class="text-muted d-block">{{ $contrato->responsable }}</small>
+                            <div style="flex: 1; text-align: right;">
+                                <p style="margin-top: 0;">
+                                <span class="font-medium rounded-lg m-1 p-1 badge" style="color:#fff; background-color:
+                                        @if($contrato->estado_id == 0)
+                                            rgb(32,160,59)
+                                        @elseif($contrato->estado_id == 1)
+                                            rgb(255,96,90)
+                                        @elseif($contrato->estado_id == 2)
+                                            rgb(255,30,13)
+                                        @elseif($contrato->estado_id == 3)
+                                            rgb(255,193,7)
+                                        @endif
+                                    ">
+                                        {{ $contrato->estado->nombreEstado }}
+                                        </span>
+                                </p>
+                                <p style="margin-top: 0;"><p><a href="{{ route('contratos.edit', $contrato->id) }}">Mostrar</a></p></p>
+                                <p style="margin-top: 0;"><p class="text-muted d-block">{{ $contrato->responsablef }}</p></p>
                             </div>
                         </div>
                     </div>
@@ -135,31 +135,30 @@
                 @foreach ($contratos as $contrato)
                     @if($contrato->estado_admin_id == 0)
                     <div class="card">
-                        <div class="card-body d-flex">
-                            <div class="mr-3">
-                            <h5 class="card-title mb-1">{{ $contrato->nombreContrato }}</h5>
-                            <!-- <h6 class="card-subtitle mb-2 text-muted"></h6> -->
-                            <p class="card-text">$ {{ $contrato->costoContrato }}</p>
+                        <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
+                            <div style="flex: 1;">
+                                <h1 style="color: rgb(35, 108, 165); font-size: 24px; margin-bottom: 0; padding-bottom: 2px;">{{ $contrato->nombreContrato }}</h1>
+                                <!-- <h2 style="font-size: 14px; margin-top: 0;"></h2> -->
+                                <p style="font-size: 14px; margin-top: 0;">$ {{ $contrato->costoContrato }}</p>
                             </div>
-                            <div class="ml-auto text-right">
-                                <small class="text-muted d-block">
-                                <span class="font-medium rounded-lg m-2 p-1" style="color:#fff; background-color:
-                                @if($contrato->estado_id == 0)
-                                    rgb(32,160,59)
-                                @elseif($contrato->estado_id == 1)
-                                    rgb(255,96,90)
-                                @elseif($contrato->estado_id == 2)
-                                    rgb(255,30,13)
-                                @elseif($contrato->estado_id == 3)
-                                    rgb(255,193,7)
-                                @endif
-                            ">
-                                {{ $contrato->estado->nombreEstado }}
-                                </span>
-                                </small>
-                                <small><a href="{{ route('contratos.edit', $contrato->id) }}">Mostrar</a></small>
-                                <small class="text-muted d-block">{{ $contrato->responsable }}</small>
-                                <h1>hola desde la card </h1>
+                            <div style="flex: 1; text-align: right;">
+                                <p style="margin-top: 0;">
+                                <span class="font-medium rounded-lg m-1 p-1 badge" style="color:#fff; background-color:
+                                        @if($contrato->estado_id == 0)
+                                            rgb(32,160,59)
+                                        @elseif($contrato->estado_id == 1)
+                                            rgb(255,96,90)
+                                        @elseif($contrato->estado_id == 2)
+                                            rgb(255,30,13)
+                                        @elseif($contrato->estado_id == 3)
+                                            rgb(255,193,7)
+                                        @endif
+                                    ">
+                                        {{ $contrato->estado->nombreEstado }}
+                                        </span>
+                                </p>
+                                <p style="margin-top: 0;"><p><a href="{{ route('contratos.edit', $contrato->id) }}">Mostrar</a></p></p>
+                                <p style="margin-top: 0;"><p class="text-muted d-block">{{ $contrato->responsable->name }}</p></p>
                             </div>
                         </div>
                     </div>
@@ -167,15 +166,15 @@
                 @endforeach
             </div>
         </div>
-
-        @if(session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
-
-        @if(session('danger'))
-            <div class="alert alert-danger">{{ session('danger') }}</div>
-        @endif
     </div>
+
+    @if(session('success_contrato'))
+        <div class="alert alert-success">{{ session('success_contrato') }}</div>
+    @endif
+
+    @if(session('danger_contrato'))
+        <div class="alert alert-danger">{{ session('danger_contrato') }}</div>
+    @endif
 
 @stop
 

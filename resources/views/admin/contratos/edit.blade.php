@@ -64,13 +64,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="inicio">Inicio</label>
-                                <input type="date" name="inicio" id="inicio" class="form-control" value="{{ $contrato->inicio }}">
+                                <input type="date" name="inicio" id="inicio" class="form-control" value="{{ $contrato->inicio }}" readonly>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="fin">Fin</label>
-                                <input type="date" name="fin" id="fin" class="form-control" value="{{ $contrato->fin }}">
+                                <input type="date" name="fin" id="fin" class="form-control" value="{{ $contrato->fin }}" readonly>
                             </div>
                         </div>
                     </div>
@@ -116,8 +116,12 @@
                     </div>
 
                     <div class="form-group" hidden>
-                        <label for="responsable">Responsable</label>
-                        <input type="text" name="responsable" id="responsable" class="form-control" value="{{ $contrato->responsable }}">
+                        <label for="responsable_user_id">Responsable</label>
+                        <select name="responsable_user_id" id="responsable_user_id" class="form-control">
+                            @foreach($users as $user)
+                                <option value="{{ $user->id }}" @if($contrato->responsable_user_id == $user->id) selected @endif>{{ $user->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group" hidden>
@@ -333,8 +337,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="responsable">Responsable</label>
-                        <input type="text" name="responsable" id="responsable" class="form-control" value="{{ $contrato->responsable }}">
+                        <label for="responsable_user_id">Responsable</label>
+                        <select name="responsable_user_id" id="responsable_user_id" class="form-control">
+                            @foreach($users as $user)
+                                <option value="{{ $user->id }}" @if($contrato->responsable_user_id == $user->id) selected @endif>{{ $user->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -544,8 +552,12 @@
                     </div>
 
                     <div class="form-group" hidden>
-                        <label for="responsable">Responsable</label>
-                        <input type="text" name="responsable" id="responsable" class="form-control" value="{{ $contrato->responsable }}">
+                        <label for="responsable_user_id">Responsable</label>
+                        <select name="responsable_user_id" id="responsable_user_id" class="form-control">
+                            @foreach($users as $user)
+                                <option value="{{ $user->id }}" @if($contrato->responsable_user_id == $user->id) selected @endif>{{ $user->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group" hidden>
@@ -646,7 +658,9 @@
         </div>
 
         <div class="tab-pane fade" id="anotaciones">
-            <h1>Hola anotacion</h1>
+            <center>
+            <h1 class="card-subtitle mb-2 text-muted">No hay anotaciones</h1
+            </center>>
         </div>
 
         @if(session('update'))
