@@ -123,7 +123,7 @@
                                         </span>
                                 </p>
                                 <p style="margin-top: 0;"><p><a href="{{ route('contratos.edit', $contrato->id) }}">Mostrar</a></p></p>
-                                <p style="margin-top: 0;"><p class="text-muted d-block">{{ $contrato->responsablef }}</p></p>
+                                <p style="margin-top: 0;"><p class="text-muted d-block">{{ $contrato->responsable->name }}</p></p>
                             </div>
                         </div>
                     </div>
