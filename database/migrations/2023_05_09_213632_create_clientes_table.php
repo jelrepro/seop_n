@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('clientes', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->nullable();
             $table->integer('cedula')->nullable(); 
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('tipo_usuario_id')->nullable();
             $table->foreign('tipo_usuario_id')->references('id')->on('tipo_usuarios');
             $table->unsignedBigInteger('estado_usuario_id')->nullable();
-            $table->foreign('estado_usuario_id')->references('id')->on('estado_usuario');
+            $table->foreign('estado_usuario_id')->references('id')->on('estado_usuarios');
             $table->text('anotaciones')->nullable();
             $table->string('codSello')->nullable();
             $table->string('codMedidor')->nullable();
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('clientes');
     }
 };

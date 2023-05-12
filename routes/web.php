@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\ProyectoController;
 use App\Http\Controllers\Admin\ContratoController;
+use App\Http\Controllers\Admin\ClienteController;
 use App\Http\Controllers\AdminController;
 
 /*
@@ -46,7 +47,7 @@ Route::resource('admin/proyectos', ProyectoController::class)
 Route::resource('admin/contratos', ContratoController::class)
     ->middleware('auth.admin');
     
-Route::resource('admin/usuarios', UsuarioController::class)
+Route::resource('admin/clientes', ClienteController::class)
     ->middleware('auth.admin');
 
 Route::get('admin', [AdminController::class, 'index'])

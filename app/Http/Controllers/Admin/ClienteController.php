@@ -3,17 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Usuario;
+use App\Models\Cliente;
+use App\Models\Vereda;
 use Illuminate\Http\Request;
 
-class UsuarioController extends Controller
+class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $clientes = Cliente::with(['vereda', 'tipoUsuario', 'estadoUsuario'])->get();
+
+        $veredas = Vereda::all();
+
+        return view('admin.clientes.index', compact('clientes','veredas'));
     }
 
     /**
@@ -35,7 +40,7 @@ class UsuarioController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Usuario $usuario)
+    public function show(Cliente $cliente)
     {
         //
     }
@@ -43,7 +48,7 @@ class UsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Usuario $usuario)
+    public function edit(Cliente $cliente)
     {
         //
     }
@@ -51,7 +56,7 @@ class UsuarioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Usuario $usuario)
+    public function update(Request $request, Cliente $cliente)
     {
         //
     }
@@ -59,7 +64,7 @@ class UsuarioController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Usuario $usuario)
+    public function destroy(Cliente $cliente)
     {
         //
     }

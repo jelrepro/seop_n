@@ -12,7 +12,7 @@ class EstadoUsuarioTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('estado_usuario')->insert([
+        DB::table('estado_usuarios')->insert([
             ['id' => 0, 'nombreEstadoUsuario' => 'ACTIVO'],
             ['id' => 1, 'nombreEstadoUsuario' => 'RENUNCIO'],
             ['id' => 2, 'nombreEstadoUsuario' => 'REVISAR'],

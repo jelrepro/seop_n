@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Usuario;
-class UsuariosTableSeeder extends Seeder
+use App\Models\Cliente;
+class ClientesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +13,7 @@ class UsuariosTableSeeder extends Seeder
     public function run()
     {
         // crear algunos usuarios de prueba
-        Usuario::create([
+        Cliente::create([
             'nombre' => 'Juan Perez',
             'cedula' => 12345678,
             'telefono' => '1234567890',
@@ -29,7 +29,7 @@ class UsuariosTableSeeder extends Seeder
             'novedad' => 'Sin novedades',
         ]);
 
-        Usuario::create([
+        Cliente::create([
             'nombre' => 'Maria Rodriguez',
             'cedula' => 87654321,
             'telefono' => '0987654321',

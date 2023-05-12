@@ -350,6 +350,12 @@ return [
             
         ], 
         [
+            'text'        => 'Usuarios',
+            'url'         => 'admin/clientes',
+            'icon'        => 'fas fa-solid fa-user',
+            
+        ], 
+        [
             'text'        => 'Perfil',
             'url'         => 'user/profile',
             'icon'        => 'fas fa-solid fa-user',
