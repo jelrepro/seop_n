@@ -128,7 +128,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="form-group">
+                   <!--  <div class="form-group">
                         <label for="responsable">Responsable</label>
                         <input type="text" name="responsable" id="responsable" class="form-control" value="{{ $proyecto->responsable }}">
                     </div> -->
