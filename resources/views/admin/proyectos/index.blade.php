@@ -25,32 +25,30 @@
                 @foreach ($proyectos as $proyecto)
                     @if($proyecto->responsable_user_id == 1)
                     <div class="card">
-                        <div class="card-body d-flex">
-                            <div class="mr-3">
-                            <h5 class="card-title mb-1">{{ $proyecto->cod_inva }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h6>
-                            <p class="card-text">${{ $proyecto->costoProyecto }}</p>
+                        <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
+                            <div style="flex: 1;">
+                                <h1 style="color: rgb(35, 108, 165); font-size: 24px; margin-bottom: 0; padding-bottom: 2px;">{{ $proyecto->cod_inva }}</h1>
+                                <h2 style="font-size: 14px; margin-top: 0;">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h2>
+                                <p style="font-size: 14px; margin-top: 0;">$ {{ $proyecto->costoProyecto }}</p>
                             </div>
-                            <div class="ml-auto text-right">
-                                <small class="text-muted d-block">
-                                <span class="font-medium rounded-lg m-2 p-1" style="color:#fff; background-color:
-                                @if($proyecto->estado_id == 0)
-                                    rgb(32,160,59)
-                                @elseif($proyecto->estado_id == 1)
-                                    rgb(255,96,90)
-                                @elseif($proyecto->estado_id == 2)
-                                    rgb(255,30,13)
-                                @elseif($proyecto->estado_id == 3)
-                                    rgb(255,193,7)
-                                @endif
-                            ">
+                            <div style="flex: 1; text-align: right;">
+                                <p style="margin-top: 0;">
+                                <span class="font-medium rounded-lg m-1 p-1 badge" style="color:#fff; background-color:
+                                    @if($proyecto->estado_id == 0)
+                                        rgb(32,160,59)
+                                    @elseif($proyecto->estado_id == 1)
+                                        rgb(255,96,90)
+                                    @elseif($proyecto->estado_id == 2)
+                                        rgb(255,30,13)
+                                    @elseif($proyecto->estado_id == 3)
+                                        rgb(255,193,7)
+                                    @endif
+                                ">
                                 {{ $proyecto->estado->nombreEstado }}
                                 </span>
-                                </small>
-                                <!-- <small><a href="#">Mostrar</a></small> -->
-                                <small><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></small>
-                                <!-- <small><a href="#" data-toggle="modal" data-target="#editarProyectoModal" data-id="{{ $proyecto->id }}">Editar</a></small> -->
-                                <small class="text-muted d-block">{{ $proyecto->responsable }}</small>
+                                </p>
+                                <p style="margin-top: 0;"><p><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></p></p>
+                                <p style="margin-top: 0;"><p class="text-muted d-block">{{ $proyecto->responsable->name }}</p></p>
                             </div>
                         </div>
                     </div>
@@ -62,32 +60,30 @@
                 @foreach ($proyectos as $proyecto)
                     @if($proyecto->responsable_user_id == 2)
                     <div class="card">
-                        <div class="card-body d-flex">
-                            <div class="mr-3">
-                            <h5 class="card-title mb-1">{{ $proyecto->cod_inva }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h6>
-                            <p class="card-text">${{ $proyecto->costoProyecto }}</p>
+                        <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
+                            <div style="flex: 1;">
+                                <h1 style="color: rgb(35, 108, 165); font-size: 24px; margin-bottom: 0; padding-bottom: 2px;">{{ $proyecto->cod_inva }}</h1>
+                                <h2 style="font-size: 14px; margin-top: 0;">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h2>
+                                <p style="font-size: 14px; margin-top: 0;">$ {{ $proyecto->costoProyecto }}</p>
                             </div>
-                            <div class="ml-auto text-right">
-                                <small class="text-muted d-block">
-                                <span class="font-medium rounded-lg m-2 p-1" style="color:#fff; background-color:
-                                @if($proyecto->estado_id == 0)
-                                    rgb(32,160,59)
-                                @elseif($proyecto->estado_id == 1)
-                                    rgb(255,96,90)
-                                @elseif($proyecto->estado_id == 2)
-                                    rgb(255,30,13)
-                                @elseif($proyecto->estado_id == 3)
-                                    rgb(255,193,7)
-                                @endif
-                            ">
+                            <div style="flex: 1; text-align: right;">
+                                <p style="margin-top: 0;">
+                                <span class="font-medium rounded-lg m-1 p-1 badge" style="color:#fff; background-color:
+                                    @if($proyecto->estado_id == 0)
+                                        rgb(32,160,59)
+                                    @elseif($proyecto->estado_id == 1)
+                                        rgb(255,96,90)
+                                    @elseif($proyecto->estado_id == 2)
+                                        rgb(255,30,13)
+                                    @elseif($proyecto->estado_id == 3)
+                                        rgb(255,193,7)
+                                    @endif
+                                ">
                                 {{ $proyecto->estado->nombreEstado }}
                                 </span>
-                                </small>
-                                <!-- <small><a href="#">Mostrar</a></small> -->
-                                <small><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></small>
-                                <!-- <small><a href="#" data-toggle="modal" data-target="#editarProyectoModal" data-id="{{ $proyecto->id }}">Editar</a></small> -->
-                                <small class="text-muted d-block">{{ $proyecto->responsable }}</small>
+                                </p>
+                                <p style="margin-top: 0;"><p><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></p></p>
+                                <p style="margin-top: 0;"><p class="text-muted d-block">{{ $proyecto->responsable->name }}</p></p>
                             </div>
                         </div>
                     </div>
@@ -99,32 +95,30 @@
                 @foreach ($proyectos as $proyecto)
                     @if($proyecto->responsable_user_id == 3)
                     <div class="card">
-                        <div class="card-body d-flex">
-                            <div class="mr-3">
-                            <h5 class="card-title mb-1">{{ $proyecto->cod_inva }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h6>
-                            <p class="card-text">${{ $proyecto->costoProyecto }}</p>
+                        <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
+                            <div style="flex: 1;">
+                                <h1 style="color: rgb(35, 108, 165); font-size: 24px; margin-bottom: 0; padding-bottom: 2px;">{{ $proyecto->cod_inva }}</h1>
+                                <h2 style="font-size: 14px; margin-top: 0;">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h2>
+                                <p style="font-size: 14px; margin-top: 0;">$ {{ $proyecto->costoProyecto }}</p>
                             </div>
-                            <div class="ml-auto text-right">
-                                <small class="text-muted d-block">
-                                <span class="font-medium rounded-lg m-2 p-1" style="color:#fff; background-color:
-                                @if($proyecto->estado_id == 0)
-                                    rgb(32,160,59)
-                                @elseif($proyecto->estado_id == 1)
-                                    rgb(255,96,90)
-                                @elseif($proyecto->estado_id == 2)
-                                    rgb(255,30,13)
-                                @elseif($proyecto->estado_id == 3)
-                                    rgb(255,193,7)
-                                @endif
-                            ">
+                            <div style="flex: 1; text-align: right;">
+                                <p style="margin-top: 0;">
+                                <span class="font-medium rounded-lg m-1 p-1 badge" style="color:#fff; background-color:
+                                    @if($proyecto->estado_id == 0)
+                                        rgb(32,160,59)
+                                    @elseif($proyecto->estado_id == 1)
+                                        rgb(255,96,90)
+                                    @elseif($proyecto->estado_id == 2)
+                                        rgb(255,30,13)
+                                    @elseif($proyecto->estado_id == 3)
+                                        rgb(255,193,7)
+                                    @endif
+                                ">
                                 {{ $proyecto->estado->nombreEstado }}
                                 </span>
-                                </small>
-                                <!-- <small><a href="#">Mostrar</a></small> -->
-                                <small><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></small>
-                                <!-- <small><a href="#" data-toggle="modal" data-target="#editarProyectoModal" data-id="{{ $proyecto->id }}">Editar</a></small> -->
-                                <small class="text-muted d-block">{{ $proyecto->responsable }}</small>
+                                </p>
+                                <p style="margin-top: 0;"><p><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></p></p>
+                                <p style="margin-top: 0;"><p class="text-muted d-block">{{ $proyecto->responsable->name }}</p></p>
                             </div>
                         </div>
                     </div>
@@ -136,32 +130,30 @@
                 @foreach ($proyectos as $proyecto)
                     @if($proyecto->responsable_user_id == 4)
                     <div class="card">
-                        <div class="card-body d-flex">
-                            <div class="mr-3">
-                            <h5 class="card-title mb-1">{{ $proyecto->cod_inva }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h6>
-                            <p class="card-text">${{ $proyecto->costoProyecto }}</p>
+                        <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
+                            <div style="flex: 1;">
+                                <h1 style="color: rgb(35, 108, 165); font-size: 24px; margin-bottom: 0; padding-bottom: 2px;">{{ $proyecto->cod_inva }}</h1>
+                                <h2 style="font-size: 14px; margin-top: 0;">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h2>
+                                <p style="font-size: 14px; margin-top: 0;">$ {{ $proyecto->costoProyecto }}</p>
                             </div>
-                            <div class="ml-auto text-right">
-                                <small class="text-muted d-block">
-                                <span class="font-medium rounded-lg m-2 p-1" style="color:#fff; background-color:
-                                @if($proyecto->estado_id == 0)
-                                    rgb(32,160,59)
-                                @elseif($proyecto->estado_id == 1)
-                                    rgb(255,96,90)
-                                @elseif($proyecto->estado_id == 2)
-                                    rgb(255,30,13)
-                                @elseif($proyecto->estado_id == 3)
-                                    rgb(255,193,7)
-                                @endif
-                            ">
+                            <div style="flex: 1; text-align: right;">
+                                <p style="margin-top: 0;">
+                                <span class="font-medium rounded-lg m-1 p-1 badge" style="color:#fff; background-color:
+                                    @if($proyecto->estado_id == 0)
+                                        rgb(32,160,59)
+                                    @elseif($proyecto->estado_id == 1)
+                                        rgb(255,96,90)
+                                    @elseif($proyecto->estado_id == 2)
+                                        rgb(255,30,13)
+                                    @elseif($proyecto->estado_id == 3)
+                                        rgb(255,193,7)
+                                    @endif
+                                ">
                                 {{ $proyecto->estado->nombreEstado }}
                                 </span>
-                                </small>
-                                <!-- <small><a href="#">Mostrar</a></small> -->
-                                <small><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></small>
-                                <!-- <small><a href="#" data-toggle="modal" data-target="#editarProyectoModal" data-id="{{ $proyecto->id }}">Editar</a></small> -->
-                                <small class="text-muted d-block">{{ $proyecto->responsable }}</small>
+                                </p>
+                                <p style="margin-top: 0;"><p><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></p></p>
+                                <p style="margin-top: 0;"><p class="text-muted d-block">{{ $proyecto->responsable->name }}</p></p>
                             </div>
                         </div>
                     </div>
@@ -173,32 +165,30 @@
                 @foreach ($proyectos as $proyecto)
                     @if($proyecto->responsable_user_id == 5)
                     <div class="card">
-                        <div class="card-body d-flex">
-                            <div class="mr-3">
-                            <h5 class="card-title mb-1">{{ $proyecto->cod_inva }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h6>
-                            <p class="card-text">${{ $proyecto->costoProyecto }}</p>
+                        <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
+                            <div style="flex: 1;">
+                                <h1 style="color: rgb(35, 108, 165); font-size: 24px; margin-bottom: 0; padding-bottom: 2px;">{{ $proyecto->cod_inva }}</h1>
+                                <h2 style="font-size: 14px; margin-top: 0;">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h2>
+                                <p style="font-size: 14px; margin-top: 0;">$ {{ $proyecto->costoProyecto }}</p>
                             </div>
-                            <div class="ml-auto text-right">
-                                <small class="text-muted d-block">
-                                <span class="font-medium rounded-lg m-2 p-1" style="color:#fff; background-color:
-                                @if($proyecto->estado_id == 0)
-                                    rgb(32,160,59)
-                                @elseif($proyecto->estado_id == 1)
-                                    rgb(255,96,90)
-                                @elseif($proyecto->estado_id == 2)
-                                    rgb(255,30,13)
-                                @elseif($proyecto->estado_id == 3)
-                                    rgb(255,193,7)
-                                @endif
-                            ">
+                            <div style="flex: 1; text-align: right;">
+                                <p style="margin-top: 0;">
+                                <span class="font-medium rounded-lg m-1 p-1 badge" style="color:#fff; background-color:
+                                    @if($proyecto->estado_id == 0)
+                                        rgb(32,160,59)
+                                    @elseif($proyecto->estado_id == 1)
+                                        rgb(255,96,90)
+                                    @elseif($proyecto->estado_id == 2)
+                                        rgb(255,30,13)
+                                    @elseif($proyecto->estado_id == 3)
+                                        rgb(255,193,7)
+                                    @endif
+                                ">
                                 {{ $proyecto->estado->nombreEstado }}
                                 </span>
-                                </small>
-                                <!-- <small><a href="#">Mostrar</a></small> -->
-                                <small><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></small>
-                                <!-- <small><a href="#" data-toggle="modal" data-target="#editarProyectoModal" data-id="{{ $proyecto->id }}">Editar</a></small> -->
-                                <small class="text-muted d-block">{{ $proyecto->responsable }}</small>
+                                </p>
+                                <p style="margin-top: 0;"><p><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></p></p>
+                                <p style="margin-top: 0;"><p class="text-muted d-block">{{ $proyecto->responsable->name }}</p></p>
                             </div>
                         </div>
                     </div>
@@ -210,32 +200,30 @@
                 @foreach ($proyectos as $proyecto)
                     @if($proyecto->responsable_user_id == 6)
                     <div class="card">
-                        <div class="card-body d-flex">
-                            <div class="mr-3">
-                            <h5 class="card-title mb-1">{{ $proyecto->cod_inva }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h6>
-                            <p class="card-text">${{ $proyecto->costoProyecto }}</p>
+                        <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
+                            <div style="flex: 1;">
+                                <h1 style="color: rgb(35, 108, 165); font-size: 24px; margin-bottom: 0; padding-bottom: 2px;">{{ $proyecto->cod_inva }}</h1>
+                                <h2 style="font-size: 14px; margin-top: 0;">{{ $proyecto->grupoProyecto->nombreGrupoProyecto }}</h2>
+                                <p style="font-size: 14px; margin-top: 0;">$ {{ $proyecto->costoProyecto }}</p>
                             </div>
-                            <div class="ml-auto text-right">
-                                <small class="text-muted d-block">
-                                <span class="font-medium rounded-lg m-2 p-1" style="color:#fff; background-color:
-                                @if($proyecto->estado_id == 0)
-                                    rgb(32,160,59)
-                                @elseif($proyecto->estado_id == 1)
-                                    rgb(255,96,90)
-                                @elseif($proyecto->estado_id == 2)
-                                    rgb(255,30,13)
-                                @elseif($proyecto->estado_id == 3)
-                                    rgb(255,193,7)
-                                @endif
-                            ">
+                            <div style="flex: 1; text-align: right;">
+                                <p style="margin-top: 0;">
+                                <span class="font-medium rounded-lg m-1 p-1 badge" style="color:#fff; background-color:
+                                    @if($proyecto->estado_id == 0)
+                                        rgb(32,160,59)
+                                    @elseif($proyecto->estado_id == 1)
+                                        rgb(255,96,90)
+                                    @elseif($proyecto->estado_id == 2)
+                                        rgb(255,30,13)
+                                    @elseif($proyecto->estado_id == 3)
+                                        rgb(255,193,7)
+                                    @endif
+                                ">
                                 {{ $proyecto->estado->nombreEstado }}
                                 </span>
-                                </small>
-                                <!-- <small><a href="#">Mostrar</a></small> -->
-                                <small><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></small>
-                                <!-- <small><a href="#" data-toggle="modal" data-target="#editarProyectoModal" data-id="{{ $proyecto->id }}">Editar</a></small> -->
-                                <small class="text-muted d-block">{{ $proyecto->responsable }}</small>
+                                </p>
+                                <p style="margin-top: 0;"><p><a href="{{ route('proyectos.edit', $proyecto->id) }}">Mostrar</a></p></p>
+                                <p style="margin-top: 0;"><p class="text-muted d-block">{{ $proyecto->responsable->name }}</p></p>
                             </div>
                         </div>
                     </div>
