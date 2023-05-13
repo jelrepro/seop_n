@@ -14,37 +14,19 @@
                 <tr>
                     <!-- <th>id</th> -->
                     <th>Vereda</th>
-                    <th>Activos</th>
-                    <th>Pendientes</th>
-                    <th>Inactivos</th>
                 </tr>
                 @foreach($veredas as $vereda)
                 <tr>
                     <!-- <td>{{ $vereda->id }}</td> -->
                     <td>{{ $vereda->veredas }}</td>
                     <td>
-                        <span class="position-relative">
-                            <i class="fas fa-solid fa-users text-success opacity-90"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-danger">
-                                1
-                            </span>
-                        </span>
+                        <span class="text-success text-bold">1</span>
                     </td>
                     <td>
-                        <span class="position-relative">
-                            <i class="fas fa-solid fa-users text-warning opacity-50"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                1
-                            </span>
-                        </span>
+                        <span class="text-warning text-bold">1</span>
                     </td>
                     <td>
-                        <span class="position-relative">
-                            <i class="fas fa-solid fa-users text-danger"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-danger">
-                                1
-                            </span>
-                        </span>
+                        <span class="text-danger text-bold">1</span>
                     </td>
                 </tr>
                 @endforeach
