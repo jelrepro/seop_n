@@ -37,5 +37,8 @@ class Cliente extends Model
         return $this->belongsTo(EstadoUsuario::class);
     }
 
-    
+    public function photos()
+    {
+        return $this->hasMany(LugarPhoto::class);
+    }
 }
