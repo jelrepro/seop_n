@@ -25,7 +25,6 @@
                 <p class="font-bold text-black-500 text-left">${{$totalCostoP}} ({{$contadorFactibilidad}} Obras)</p>
                 @foreach ($proyectos as $proyecto)
                     @if($proyecto->estado_gestion_id == 3)
-                    @if($proyecto->estado_gestion_id == 3)
                     <div class="card">
                         <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
                             <div style="flex: 1;">
