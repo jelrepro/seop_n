@@ -60,6 +60,12 @@ class ContratoController extends Controller
         $estadosAdmin = [0,1,2,3]; // Arreglo con los estados de gestión que deseas sumar
         $totalCostoContrato = Contrato::whereIn('estado_admin_id', $estadosAdmin)->sum('costoContrato');
         
+        $contP = Contrato::where('estado_admin_id', 3)->count();
+        $contC = Contrato::where('estado_admin_id', 2)->count();
+        $contE = Contrato::where('estado_admin_id', 1)->count();
+        $contL = Contrato::where('estado_admin_id', 0)->count();
+
+        $contContratos =Contrato::all()->count();
         
         $municipios = Municipio::all();
         $estados = Estado::all();
@@ -68,7 +74,7 @@ class ContratoController extends Controller
         $gruposProyecto = GrupoProyecto::all();
         $tiposProyecto = TipoProyecto::all();
 
-        return view('admin.contratos.index', compact('contratos', 'municipios', 'estados', 'estadosGestion', 'users', 'gruposProyecto', 'tiposProyecto', 'totalCostoP', 'totalCostoE','totalCostoC', 'totalCostoL','totalCostoContrato'));
+        return view('admin.contratos.index', compact('contratos', 'municipios', 'estados', 'estadosGestion', 'users', 'gruposProyecto', 'tiposProyecto', 'totalCostoP', 'totalCostoE','totalCostoC', 'totalCostoL','totalCostoContrato','contP','contC','contE','contL','contContratos'));
     }
 
     /**
