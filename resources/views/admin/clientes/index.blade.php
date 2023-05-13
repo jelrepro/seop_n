@@ -3,7 +3,42 @@
 @section('title', 'Usuarios')
 
 @section('content_header')
+    <div class="clearfix">
+        <div class="button-group">
+            <!-- <h1 class="float-left">Proyectos</h1> -->
+            <form method="POST" action="">
+                @csrf
+                <button type="submit" class="btn float-left" style="background-color: purple; color: white;" name="Nuevo">Nuevo</button>
+            </form>
 
+            <div class="float-right">
+                <div class="row">
+                    <div class="col">
+                        <i class="fas fa-solid fa-users text-success"></i>
+                    </div>
+                    <div class="col">
+                        hola2
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <i class="fas fa-solid fa-users text-warning"></i>
+                    </div>
+                    <div class="col">
+                        hola2
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <i class="fas fa-solid fa-users text-danger"></i>
+                    </div>
+                    <div class="col">
+                        hola2
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop
     
 @section('content')
