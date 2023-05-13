@@ -22,8 +22,9 @@
         <div class="row d-flex flex-nowrap overflow-auto" style="height: 75vh;">
             <div class="col-sm-4">
                 <h6>FACTIBILIDAD</h6>
-                <h6>$ {{ $totalCostoP }} <span>({{ $contadorFactibilidad }} Obras)</span></h6>
+                <p class="font-bold text-black-500 text-left">${{$totalCostoP}} ({{$contadorFactibilidad}} Obras)</p>
                 @foreach ($proyectos as $proyecto)
+                    @if($proyecto->estado_gestion_id == 3)
                     @if($proyecto->estado_gestion_id == 3)
                     <div class="card">
                         <div class="card-body d-flex"  style="flex-direction: row; justify-content: space-between;">
@@ -57,8 +58,8 @@
                 @endforeach
             </div>
             <div class="col-sm-4">
-                <h6>INICIO</h6>
-                <h6>$ {{ $totalCostoD }} <span>({{ $contadorInicio }} Obras)</span></h6>
+            <h6>INICIO</h6>
+            <p class="font-bold text-black-500 text-left">${{$totalCostoD}} ({{$contadorInicio}} Obras)</p>
                 @foreach ($proyectos as $proyecto)
                     @if($proyecto->estado_gestion_id == 4)
                     <div class="card">
@@ -93,8 +94,8 @@
                 @endforeach
             </div>
             <div class="col-sm-4">
-                <h6>PLANEACÓN</h6>
-                <h6>$ {{ $totalCostoC }} <span>({{ $contadorPlaneacion }} Obras)</span></h6>
+            <h6>PLANEACION</h6>
+            <p class="font-bold text-black-500 text-left">${{$totalCostoC}} ({{$contadorPlaneacion}} Obras)</p>
                 @foreach ($proyectos as $proyecto)
                     @if($proyecto->estado_gestion_id == 0)
                     <div class="card">
@@ -129,8 +130,8 @@
                 @endforeach
             </div>
             <div class="col-sm-4">
-                <h6>EJECUCION</h6>
-                <h6>$ {{ $totalCostoS }} <span>({{ $contadorEjecucion }} Obras)</span></h6>
+            <h6 >Ejecucion</h6>
+            <p class="font-bold text-black-500 text-left">${{$totalCostoS}}  ({{$contadorEjecucion}} Obras)</p>
                 @foreach ($proyectos as $proyecto)
                     @if($proyecto->estado_gestion_id == 1)
                     <div class="card">
@@ -164,9 +165,10 @@
                     @endif
                 @endforeach
             </div>
+            
             <div class="col-sm-4">
-                <h6>CIERRE</h6>
-                <h6>$ {{ $totalCostoE }} <span>({{ $contadorCierre }} Obras)</span></h6>
+            <h6>CIERRE</h6>
+            <p class="font-bold text-black-500 text-left">${{$totalCostoE}} ({{$contadorCierre}} Obras)</p>
                 @foreach ($proyectos as $proyecto)
                     @if($proyecto->estado_gestion_id == 2)
                     <div class="card">
@@ -200,6 +202,9 @@
                     @endif
                 @endforeach
             </div>
+            
+            
+            
         </div>
     </div>
 

@@ -22,6 +22,7 @@ class ContratoController extends Controller
      */
     public function index()
     {
+        
         $contratos = Contrato::all();
 
         $totalCostoP = 0;
