@@ -6,18 +6,14 @@
 
     <div class="clearfix">
         <div class="button-group">
-            <h1 class="float-left">Contratos</h1>
             <form method="POST" action="{{ route('contratos.store') }}">
                 @csrf
-                <button type="submit" class="btn btn-primary float-right" style="background-color: purple; color: white;">Nuevo</button>
+                <button type="submit" class="btn float-left" style="background-color: purple; color: white;">Nuevo</button>
             </form>
-            </div><br><br>
-        <div class="button-group">
-            <h1 class="float-left"hidden>.</h1>
             
-            <h6 class="float-right">$  <span>( Obras)</span></h6>
+            <h6 class="float-right">$ {{ $totalCostoContrato }} <span>( Obras)</span></h6>
         </div>
-    </div>
+    </div><br>
 
 @stop
     
@@ -27,6 +23,7 @@
         <div class="row d-flex flex-nowrap overflow-auto" style="height: 70vh;">
             <div class="col-sm-4">
                 <h6>PRECONTRACTUAL</h6>
+                <h6>$ {{ $totalCostoP }} <span>( Obras)</span></h6>
                 @foreach ($contratos as $contrato)
                     @if($contrato->estado_admin_id == 3)
                     <div class="card">
@@ -62,6 +59,7 @@
             </div>
             <div class="col-sm-4">
                 <h6>CONTRACTUAL</h6>
+                <h6>$ {{ $totalCostoC }} <span>( Obras)</span></h6>
                 @foreach ($contratos as $contrato)
                     @if($contrato->estado_admin_id == 2)                 
                     <div class="card">
@@ -97,6 +95,7 @@
             </div>
             <div class="col-sm-4">
                 <h6>EJECUCION</h6>
+                <h6>$ {{ $totalCostoE }} <span>( Obras)</span></h6>
                 @foreach ($contratos as $contrato)
                     @if($contrato->estado_admin_id == 1)
                     <div class="card">
@@ -132,6 +131,7 @@
             </div>
             <div class="col-sm-4">
                 <h6>LIQUIDACION</h6>
+                <h6>$ {{ $totalCostoL }} <span>( Obras)</span></h6>
                 @foreach ($contratos as $contrato)
                     @if($contrato->estado_admin_id == 0)
                     <div class="card">

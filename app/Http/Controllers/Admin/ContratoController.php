@@ -23,6 +23,43 @@ class ContratoController extends Controller
     public function index()
     {
         $contratos = Contrato::all();
+
+        $totalCostoP = 0;
+
+        foreach ($contratos as $contrato) {
+            if ($contrato->estado_admin_id == 3) {
+                $totalCostoP += $contrato->costoContrato;
+            }
+        }
+
+        $totalCostoC = 0;
+
+        foreach ($contratos as $contrato) {
+            if ($contrato->estado_admin_id == 2) {
+                $totalCostoC += $contrato->costoContrato;
+            }
+        }
+
+        $totalCostoE = 0;
+
+        foreach ($contratos as $contrato) {
+            if ($contrato->estado_admin_id == 1){
+                $totalCostoE += $contrato->costoContrato;
+            }
+        }
+
+        $totalCostoL = 0;
+
+        foreach ($contratos as $contrato) {
+            if ($contrato->estado_admin_id == 0) {
+                $totalCostoL += $contrato->costoContrato;
+            }
+        }
+
+        $estadosAdmin = [0,1,2,3]; // Arreglo con los estados de gestión que deseas sumar
+        $totalCostoContrato = Contrato::whereIn('estado_admin_id', $estadosAdmin)->sum('costoContrato');
+        
+        
         $municipios = Municipio::all();
         $estados = Estado::all();
         $estadosGestion = EstadoGestion::all();
@@ -30,7 +67,7 @@ class ContratoController extends Controller
         $gruposProyecto = GrupoProyecto::all();
         $tiposProyecto = TipoProyecto::all();
 
-        return view('admin.contratos.index', compact('contratos', 'municipios', 'estados', 'estadosGestion', 'users', 'gruposProyecto', 'tiposProyecto'));
+        return view('admin.contratos.index', compact('contratos', 'municipios', 'estados', 'estadosGestion', 'users', 'gruposProyecto', 'tiposProyecto', 'totalCostoP', 'totalCostoE','totalCostoC', 'totalCostoL','totalCostoContrato'));
     }
 
     /**
