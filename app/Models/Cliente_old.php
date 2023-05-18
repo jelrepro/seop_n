@@ -9,6 +9,9 @@ class Cliente extends Model
 {
     use HasFactory;
 
+    protected $connection = 'mysql';
+    protected $table = 'clientes';
+
     protected $fillable = [
         'nombre',
         'cedula',
@@ -23,7 +26,6 @@ class Cliente extends Model
         'fechaNacimiento',
         'novedad', 
     ];
-
     public function vereda()
     {
         return $this->belongsTo(Vereda::class);

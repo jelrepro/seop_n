@@ -25,4 +25,8 @@ class Vereda extends Model
     {
         return $this->belongsTo(Contrato::class);
     }
+    public function clientes()
+    {
+        return $this->hasMany(Cliente::class, 'vereda_id', 'id');
+    }
 }

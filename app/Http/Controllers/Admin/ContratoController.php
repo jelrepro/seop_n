@@ -168,6 +168,8 @@ class ContratoController extends Controller
         $contrato->fin = $request->input('fin');
         $contrato->responsable_user_id = $request->input('responsable_user_id');
         
+        // dd($contrato);
+
         $contrato -> save();
 
         $municipios = Municipio::all();

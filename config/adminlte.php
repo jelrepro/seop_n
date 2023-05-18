@@ -351,7 +351,7 @@ return [
         ], 
         [
             'text'        => 'Usuarios',
-            'url'         => 'admin/clientes',
+            'url'         => 'admin/veredas',
             'icon'        => 'fas fa-solid fa-user',
             
         ], 

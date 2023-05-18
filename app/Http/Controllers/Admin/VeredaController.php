@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Vereda;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 class VeredaController extends Controller
@@ -13,7 +14,11 @@ class VeredaController extends Controller
      */
     public function index()
     {
-        //
+        $clientes = Cliente::with(['vereda', 'tipoUsuario', 'estadoUsuario'])->get();
+
+        $veredas = Vereda::all();
+
+        return view('admin.veredas.index', compact('clientes','veredas'));
     }
 
     /**
@@ -37,7 +42,10 @@ class VeredaController extends Controller
      */
     public function show(Vereda $vereda)
     {
-        //
+        // $vereda = Vereda::findOrFail($vereda);
+        $clientes = $vereda->clientes;
+
+        return view('admin.veredas.show', compact('vereda','clientes'));
     }
 
     /**

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ProyectoController;
 use App\Http\Controllers\Admin\ContratoController;
 use App\Http\Controllers\Admin\ClienteController;
+use App\Http\Controllers\Admin\VeredaController;
 use App\Http\Controllers\AdminController;
 
 /*
@@ -47,7 +48,10 @@ Route::resource('admin/proyectos', ProyectoController::class)
 Route::resource('admin/contratos', ContratoController::class)
     ->middleware('auth.admin');
     
-Route::resource('admin/clientes', ClienteController::class)
+Route::resource('admin/veredas', VeredaController::class)
+    ->middleware('auth.admin');
+    
+Route::resource('admin/veredas/usuarios', ClienteController::class)
     ->middleware('auth.admin');
 
 Route::get('admin', [AdminController::class, 'index'])
