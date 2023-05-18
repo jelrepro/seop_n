@@ -1,9 +1,13 @@
 @extends('adminlte::page')
 
 @section('title', 'Mostrar Usuarios')
-    
-@section('content_header')
 
+@section('content_header')
+<div style="position: relative;">
+    <a href="{{ route('veredas.show', $cliente->vereda_id) }}" class="btn btn-close" style="position: absolute;">
+        <i class="fas fa-times"></i>
+    </a>
+</div>
 @stop
     
 @section('content')
@@ -109,7 +113,29 @@
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
     <style>
-        
+        .btn-close {
+            /* position: absolute; */
+            top: -10px;
+            right: 0;
+            margin: 1px;
+            background-color: rgb(223,0,37);
+            border: none;
+        }
+
+        .btn-close:hover {
+            background-color: rgb(247,0,0);
+        }
+
+        .btn-close i {
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .btn-hover-danger:hover {
+            color: #fff;
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
     </style>
 @stop
 

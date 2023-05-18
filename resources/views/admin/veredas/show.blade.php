@@ -6,7 +6,16 @@
 
 <div class="clearfix">
     <div class="button-group">
-        
+        <form method="POST" action="{{ route('usuarios.store') }}">
+            @csrf
+            <div class="form-group" hidden>
+                <label for="vereda_id">Vereda</label>
+                <select name="vereda_id" id="vereda_id" class="form-control">
+                    <option value="{{ $vereda->id }}"></option>
+                </select>
+            </div>
+            <button type="submit" class="btn float-left" style="background-color: purple; color: white;" name="Nuevo">Nuevo</button>
+        </form>
         <div class="float-right">
             <div class="row">
                 <div class="col">

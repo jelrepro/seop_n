@@ -35,7 +35,8 @@ class ClienteController extends Controller
     {
         $cliente = new Cliente;
 
-        $cliente->vereda_id = 1;
+        // $cliente->vereda_id = 1;
+        $cliente->vereda_id = $request->input('vereda_id');
         $cliente->tipo_usuario_id = 1;
         $cliente->estado_usuario_id = 0;
 

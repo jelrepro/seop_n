@@ -3,14 +3,7 @@
 @section('title', 'Usuarios')
 
 @section('content_header')
-    <div class="clearfix">
-        <div class="button-group">
-            <form method="POST" action="{{ route('usuarios.store') }}">
-                @csrf
-                <button type="submit" class="btn float-left" style="background-color: purple; color: white;" name="Nuevo">Nuevo</button>
-            </form>
-        </div>
-    </div>
+
 @stop
     
 @section('content')
