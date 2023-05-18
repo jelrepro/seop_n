@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Cliente;
 use App\Models\Vereda;
+use App\Models\TipoUsuario;
+use App\Models\EstadoUsuario;
 
 class ClienteController extends Controller
 {
@@ -57,7 +59,11 @@ class ClienteController extends Controller
     {
         $cliente = Cliente::find($id);
 
-        return view('admin.clientes.edit', compact('cliente'));
+        $veredas = Vereda::all();
+        $tiposUsuario = TipoUsuario::all();
+        $estadosUsuario = EstadoUsuario::all();
+
+        return view('admin.clientes.edit', compact('cliente', 'veredas', 'tiposUsuario', 'estadosUsuario'));
     }
 
     /**
@@ -66,8 +72,17 @@ class ClienteController extends Controller
     public function update(Request $request, string $id)
     {
         $cliente = Cliente::find($id);
-        
+
         $cliente->nombre = $request->input('nombre');
+        $cliente->cedula = $request->input('cedula');
+        $cliente->telefono = $request->input('telefono');
+        $cliente->vereda_id = $request->input('vereda_id');
+        $cliente->tipo_usuario_id = $request->input('tipo_usuario_id');
+        $cliente->estado_usuario_id = $request->input('estado_usuario_id');
+        $cliente->anotaciones = $request->input('anotaciones');
+        $cliente->novedad = $request->input('novedad');
+        $cliente->codSello = $request->input('codSello');
+        $cliente->codMedidor = $request->input('codMedidor');
         
         // dd($cliente);
         $cliente->save();
