@@ -8,7 +8,7 @@
     
 @section('content')
 <div class="container-fluid">
-    <div class="row d-flex flex-nowrap overflow-auto" style="height: 75vh">
+    <div class="row d-flex flex-nowrap overflow-auto" style="height: 90vh">
         <div class="col-sm-5 d-flex flex-nowrap overflow-auto">
             <table class="table table-striped">
                 <tr>

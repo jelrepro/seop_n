@@ -51,12 +51,18 @@
         
     </div>
 </div>
-
+<br>
+<div style="position: relative;">
+    <h4><span class="text-bold">{{ $vereda->veredas }}</span></h4>
+    <a href="{{ route('veredas.index') }}" class="btn btn-close" style="position: absolute;">
+        <i class="fas fa-times"></i>
+    </a>
+</div>
 @stop
     
 @section('content')
 
-<h4>Vereda: <span class="text-bold">{{ $vereda->veredas }}</span></h4>
+<!-- <h4>Vereda: <span class="text-bold">{{ $vereda->veredas }}</span></h4> -->
 
 <div class="card-container">
 @foreach ($vereda->clientes as $cliente)
@@ -96,6 +102,29 @@
         .card {
             flex: 0 0 calc(33.33% - 20px); /* Ajusta el porcentaje según tus necesidades */
             margin: 10px;
+        }
+        .btn-close {
+            /* position: absolute; */
+            top: -10px;
+            right: 0;
+            margin: 1px;
+            background-color: rgb(223,0,37);
+            border: none;
+        }
+
+        .btn-close:hover {
+            background-color: rgb(247,0,0);
+        }
+
+        .btn-close i {
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .btn-hover-danger:hover {
+            color: #fff;
+            background-color: #dc3545;
+            border-color: #dc3545;
         }
     </style>
 @stop
