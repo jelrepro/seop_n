@@ -77,6 +77,7 @@ class ClienteController extends Controller
         $cliente->nombre = $request->input('nombre');
         $cliente->cedula = $request->input('cedula');
         $cliente->telefono = $request->input('telefono');
+        $cliente->fechaNacimiento = $request->input('fechaNacimiento');
         $cliente->vereda_id = $request->input('vereda_id');
         $cliente->tipo_usuario_id = $request->input('tipo_usuario_id');
         $cliente->estado_usuario_id = $request->input('estado_usuario_id');
