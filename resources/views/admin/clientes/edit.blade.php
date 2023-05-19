@@ -4,6 +4,7 @@
 
 @section('content_header')
 <div style="position: relative;">
+    <h1><i class="fas fa-solid fa-user"></i> {{ $cliente->nombre }}</h1>
     <a href="{{ route('veredas.show', $cliente->vereda_id) }}" class="btn btn-close" style="position: absolute;">
         <i class="fas fa-times"></i>
     </a>
