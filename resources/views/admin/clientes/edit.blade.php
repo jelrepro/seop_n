@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Mostrar Usuarios')
+@section('title', 'Mostrar Usuario')
 
 @section('content_header')
 <div style="position: relative;">
