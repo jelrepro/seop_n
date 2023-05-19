@@ -42,7 +42,7 @@ class ClienteController extends Controller
 
         $cliente->save();
 
-        return redirect()->route('veredas.index');
+        return redirect()->route('veredas.show', ['vereda' => $cliente->vereda_id]);
     }
 
     /**
