@@ -74,17 +74,16 @@ class ClienteController extends Controller
     {
         $cliente = Cliente::find($id);
 
-        $cliente->nombre = $request->input('nombre');
         $cliente->cedula = $request->input('cedula');
         $cliente->telefono = $request->input('telefono');
         $cliente->fechaNacimiento = $request->input('fechaNacimiento');
-        $cliente->vereda_id = $request->input('vereda_id');
         $cliente->tipo_usuario_id = $request->input('tipo_usuario_id');
         $cliente->estado_usuario_id = $request->input('estado_usuario_id');
         $cliente->anotaciones = $request->input('anotaciones');
         $cliente->novedad = $request->input('novedad');
-        $cliente->codSello = $request->input('codSello');
-        $cliente->codMedidor = $request->input('codMedidor');
+        $cliente->vereda_id = $request->input('vereda_id');
+        $cliente->x = $request->input('x');
+        $cliente->y = $request->input('y');
         
         // dd($cliente);
         $cliente->save();
