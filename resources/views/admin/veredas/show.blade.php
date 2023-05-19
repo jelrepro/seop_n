@@ -76,7 +76,7 @@
             </div>
             <div class="col">
                 <h5>{{ $cliente->nombre }}</h5>
-                <p>{{ $cliente->vereda_id }}</p>
+                <p>{{ $cliente->vereda->veredas }}</p>
                 <p>{{ $cliente->cedula }}</p>
                 <p>{{ $cliente->telefono }}</p>
                 <p>{{ $cliente->anotaciones }}</p>

@@ -26,7 +26,7 @@ class Cliente extends Model
 
     public function vereda()
     {
-        return $this->belongsTo(Vereda::class);
+        return $this->belongsTo(Vereda::class, 'vereda_id');
     }
     public function tipoUsuario()
     {
