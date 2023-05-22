@@ -23,6 +23,7 @@ class Cliente extends Model
         'fechaNacimiento',
         'novedad',
         'url',
+        'url_pdf',
     ];
 
     public function vereda()

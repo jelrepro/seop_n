@@ -227,6 +227,14 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group" hidden>
+                                <label for="file">PDF</label>
+                                <input type="file" name="file_pdf" id="file_pdf" accept=".pdf" class="form-control-file" value="">
+                                @error('file')
+                                    <small class="text-danger">{{$message}}</small>
+                                @enderror
+                            </div>
+
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group" hidden>
@@ -308,6 +316,119 @@
                         <button class="btn btn-primary" type="submit">Subir Imagen</button>
 
                     </form>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <form action="{{ route('usuarios.update', $cliente->id) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                        
+                        <div class="container">
+                            <div class="form-group" hidden>
+                                <label for="file">Fotos</label>
+                                <input type="file" name="file" id="file" accept="image/*" class="form-control-file" value="">
+                                @error('file')
+                                    <small class="text-danger">{{$message}}</small>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="file">PDF</label>
+                                <input type="file" name="file_pdf" id="file_pdf" accept=".pdf" class="form-control-file" value="">
+                                @error('file')
+                                    <small class="text-danger">{{$message}}</small>
+                                @enderror
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group" hidden>
+                                        <label for="estado_usuario_id">Estado</label>
+                                        <select name="estado_usuario_id" id="estado_usuario_id" class="form-control">
+                                            @foreach($estadosUsuario as $estadoUsuario)
+                                                <option value="{{ $estadoUsuario->id }}" @if($cliente->estado_usuario_id == $estadoUsuario->id) selected @endif>{{ $estadoUsuario->nombreEstadoUsuario }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group" hidden>
+                                        <label for="tipo_usuario_id">Tipo</label>
+                                        <select name="tipo_usuario_id" id="tipo_usuario_id" class="form-control">
+                                            @foreach($tiposUsuario as $tipoUsuario)
+                                                <option value="{{ $tipoUsuario->id }}" @if($cliente->tipo_usuario_id == $tipoUsuario->id) selected @endif>{{ $tipoUsuario->nombreTipoUsuario }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group" hidden>
+                                        <label for="cedula">Cedula</label>
+                                        <input type="text" name="cedula" id="cedula" class="form-control" value="{{ $cliente->cedula }}">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group" hidden>
+                                        <label for="fechaNacimiento">Fecha Nacimiento</label>
+                                        <input type="date" name="fechaNacimiento" id="fechaNacimiento" class="form-control" value="{{ $cliente->fechaNacimiento }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group" hidden>
+                                        <label for="telefono">Telefono</label>
+                                        <input type="text" name="telefono" id="telefono" class="form-control" value="{{ $cliente->telefono }}">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        
+                            <div class="form-group" hidden>
+                                <label for="anotaciones">Anotaciones</label>
+                                <textarea name="anotaciones" id="anotaciones" class="form-control">{{ $cliente->anotaciones }}</textarea>
+                            </div>
+
+                            <div class="form-group" hidden>
+                                <label for="novedad">Novedad</label>
+                                <textarea name="novedad" id="novedad" class="form-control">{{ $cliente->novedad }}</textarea>
+                            </div>
+        
+                            <div class="form-group" hidden>
+                                <label for="vereda_id">Vereda</label>
+                                <select name="vereda_id" id="vereda_id" class="form-control">
+                                    @foreach ($veredas as $vereda)
+                                        <option value="{{ $vereda->id }}">{{ $vereda->veredas }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        
+                            <div class="form-group" hidden>
+                                <label for="x">X</label>
+                                <input type="text" name="x" id="x" class="form-control" value="{{ $cliente->x }}">
+                            </div>
+
+                            <div class="form-group" hidden>
+                                <label for="y">Y</label>
+                                <input type="text" name="y" id="y" class="form-control" value="{{ $cliente->y }}">
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" type="submit">Subir Pdf</button>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <embed src="{{ $cliente->url_pdf }}" type="application/pdf" width="100%" height="600px">
                 </div>
             </div>
         </div>

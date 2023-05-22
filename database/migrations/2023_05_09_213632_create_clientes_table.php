@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('fechaNacimiento')->nullable();
             $table->text('novedad')->nullable();
             $table->string('url')->nullable();
+            $table->string('url_pdf')->nullable();
             
             $table->timestamps();
         });
