@@ -126,10 +126,10 @@ class ClienteController extends Controller
                 'file_pdf' => 'required|mimes:pdf|max:2048'
             ]);
 
-            $nuevaImagen = $request->file('file_pdf')->store('public/pdf');
+            $nuevoPdf = $request->file('file_pdf')->store('public/pdf');
             
             $cliente->update([
-                'url_pdf' => Storage::url($nuevaImagen)
+                'url_pdf' => Storage::url($nuevoPdf)
             ]);
             
         }

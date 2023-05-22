@@ -3,6 +3,15 @@
 @section('title', 'Usuarios')
 
 @section('content_header')
+<div class="clearfix">
+    <div class="button-group">
+        <div class="float-right">
+                
+            <a href="{{ route('veredas.imprimir') }}"><button type="submit" class="btn float-left" style="background-color: purple; color: white;" name="Nuevo"><i class="fas fa-print"></i> Imprimir</button></a>
+            
+        </div>
+    </div>
+</div>
 
 @stop
     

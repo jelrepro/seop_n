@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Vereda;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+
+
+use PDF;
 
 class VeredaController extends Controller
 {
@@ -19,6 +23,22 @@ class VeredaController extends Controller
         $veredas = Vereda::all();
 
         return view('admin.veredas.index', compact('clientes','veredas'));
+    }
+
+    public function imprimir()
+    {
+        // $clientes = Cliente::with(['vereda', 'tipoUsuario', 'estadoUsuario'])->get();
+
+        // $veredas = Vereda::all();
+
+        // $fecha = date(y-m-d);
+        // $data = compact('clientes', 'veredas');
+        // $pdf = PDF::loadView('pdf.reporteveredas', $data);
+
+        // return $pdf->stream();
+        // return $pdf->download('invoice.pdf');
+
+        return view('admin.proyectos.index');
     }
 
     /**
