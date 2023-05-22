@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('codMedidor')->nullable();
             $table->string('fechaNacimiento')->nullable();
             $table->text('novedad')->nullable();
+            $table->string('url')->nullable();
             
             $table->timestamps();
         });

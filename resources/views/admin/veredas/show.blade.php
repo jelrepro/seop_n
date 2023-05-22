@@ -70,7 +70,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-auto">
-                <img src="" alt="Imagen de Usuario" class="img-fluid"><br>
+                <img src="{{ $cliente->url }}" alt="Imagen de Usuario" class="img-fluid" style="width: 150px; height: 150px;"><br>
                 <i class="fas fa-user"></i>
                 <span>ID: {{ $cliente->id }}</span>
             </div>

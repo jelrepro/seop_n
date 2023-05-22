@@ -10,6 +10,8 @@ use App\Models\Vereda;
 use App\Models\TipoUsuario;
 use App\Models\EstadoUsuario;
 
+use Illuminate\Support\Facades\Storage;
+
 class ClienteController extends Controller
 {
     /**
@@ -44,6 +46,25 @@ class ClienteController extends Controller
 
         return redirect()->route('veredas.show', ['vereda' => $cliente->vereda_id]);
     }
+
+    // public function insertar(Request $request)
+    // {   
+
+    //     $request->validate([
+    //         'file' => 'required|image|max:2048'
+    //     ]);
+
+    //     $imagenes = $request->file('file')->store('public/imagenes');
+
+    //     $url = Storage::url($imagenes);
+
+    //     Cliente::create ([
+    //         'url' => $url
+    //     ]);
+
+    //     return redirect()->route('veredas.index');
+
+    // }
 
     /**
      * Display the specified resource.
@@ -81,9 +102,24 @@ class ClienteController extends Controller
         $cliente->estado_usuario_id = $request->input('estado_usuario_id');
         $cliente->anotaciones = $request->input('anotaciones');
         $cliente->novedad = $request->input('novedad');
-        $cliente->vereda_id = $request->input('vereda_id');
+        // $cliente->vereda_id = $request->input('vereda_id');
         $cliente->x = $request->input('x');
         $cliente->y = $request->input('y');
+
+        if ($request->hasFile('file')) {
+            
+            $request->validate([
+                'file' => 'required|image|max:2048'
+            ]);
+
+            $nuevaImagen = $request->file('file')->store('public/imagenes');
+            
+            $cliente->update([
+                'url' => Storage::url($nuevaImagen)
+            ]);
+            
+        }
+        
         
         // dd($cliente);
         $cliente->save();
@@ -98,4 +134,5 @@ class ClienteController extends Controller
     {
         //
     }
+
 }

@@ -21,7 +21,8 @@ class Cliente extends Model
         'codSello',
         'codMedidor',
         'fechaNacimiento',
-        'novedad', 
+        'novedad',
+        'url',
     ];
 
     public function vereda()
