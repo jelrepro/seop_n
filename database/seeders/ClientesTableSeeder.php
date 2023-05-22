@@ -5,13 +5,17 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Cliente;
+use Faker\Factory as Faker;
+
 class ClientesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run()
-    {
+    {   
+        $faker = Faker::create();
+
         // crear algunos usuarios de prueba
         Cliente::create([
             'nombre' => 'Juan Perez',
@@ -27,6 +31,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'DEF456',
             'fechaNacimiento' => '1990-01-01',
             'novedad' => 'Sin novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         Cliente::create([
@@ -43,6 +48,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'DEF456',
             'fechaNacimiento' => '1990-01-01',
             'novedad' => 'Sin novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         Cliente::create([
@@ -59,6 +65,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'DEF456',
             'fechaNacimiento' => '1990-01-01',
             'novedad' => 'Sin novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         Cliente::create([
@@ -75,6 +82,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'UVW012',
             'fechaNacimiento' => '1980-01-01',
             'novedad' => 'Con novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         Cliente::create([
@@ -91,6 +99,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'UVW012',
             'fechaNacimiento' => '1980-01-01',
             'novedad' => 'Con novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         Cliente::create([
@@ -107,6 +116,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'UVW012',
             'fechaNacimiento' => '1980-01-01',
             'novedad' => 'Con novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         Cliente::create([
@@ -123,6 +133,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'UVW012',
             'fechaNacimiento' => '1980-01-01',
             'novedad' => 'Con novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         Cliente::create([
@@ -139,6 +150,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'UVW012',
             'fechaNacimiento' => '1980-01-01',
             'novedad' => 'Con novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         Cliente::create([
@@ -155,6 +167,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'UVW012',
             'fechaNacimiento' => '1980-01-01',
             'novedad' => 'Con novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         Cliente::create([
@@ -171,6 +184,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'UVW012',
             'fechaNacimiento' => '1980-01-01',
             'novedad' => 'Con novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
         
         Cliente::create([
@@ -187,6 +201,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'UVW012',
             'fechaNacimiento' => '1980-01-01',
             'novedad' => 'Con novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         Cliente::create([
@@ -203,6 +218,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'UVW012',
             'fechaNacimiento' => '1980-01-01',
             'novedad' => 'Con novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         Cliente::create([
@@ -219,6 +235,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'UVW012',
             'fechaNacimiento' => '1980-01-01',
             'novedad' => 'Con novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         Cliente::create([
@@ -235,6 +252,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'UVW012',
             'fechaNacimiento' => '1980-01-01',
             'novedad' => 'Con novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         Cliente::create([
@@ -251,6 +269,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'UVW012',
             'fechaNacimiento' => '1980-01-01',
             'novedad' => 'Con novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         Cliente::create([
@@ -267,6 +286,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'UVW012',
             'fechaNacimiento' => '1980-01-01',
             'novedad' => 'Con novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         Cliente::create([
@@ -283,6 +303,7 @@ class ClientesTableSeeder extends Seeder
             'codMedidor' => 'UVW012',
             'fechaNacimiento' => '1980-01-01',
             'novedad' => 'Con novedades',
+            'url' => $faker->imageUrl($width = 640, $height = 480),
         ]);
 
         // crear más usuarios aquí si lo desea

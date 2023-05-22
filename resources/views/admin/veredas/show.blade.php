@@ -76,9 +76,12 @@
             </div>
             <div class="col">
                 <h5>{{ $cliente->nombre }}</h5>
-                <p>{{ $cliente->vereda->veredas }}</p>
+                <!-- <p>{{ $cliente->vereda->veredas }}</p>
                 <p>{{ $cliente->cedula }}</p>
-                <p>{{ $cliente->telefono }}</p>
+                <p>{{ $cliente->telefono }}</p> -->
+                <p><i class="fas fa-map-marker-alt"></i> {{ $cliente->vereda->veredas }}</p>
+                <p><i class="fas fa-id-card"></i> {{ $cliente->cedula }}</p>
+                <p><i class="fas fa-phone"></i> {{ $cliente->telefono }}</p>
                 <p>{{ $cliente->anotaciones }}</p>
                 <a href="{{ route('usuarios.edit', ['usuario' => $cliente->id]) }}">
                     <i class="fas fa-eye"></i>
