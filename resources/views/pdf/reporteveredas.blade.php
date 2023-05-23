@@ -13,37 +13,43 @@
 </head>
 <body>
     <div class="button-group">
-        <div class="float-right">
-            <div class="row">
-                <div class="col">
-                    <i class="fas fa-solid fa-users text-success"></i>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <i class="fas fa-solid fa-users text-success"></i>
+                    </div>
+                    <div class="col-auto">
+                        <h6>{{ $clientes->where('estado_usuario_id', 0)->count() }} Activos</h6>
+                    </div>
                 </div>
-                <div class="col-auto">
-                    <h6>{{ $clientes->where('estado_usuario_id', 0)->count() }} Activos</h6>
+                <div class="row">
+                    <div class="col">
+                        <i class="fas fa-solid fa-users text-warning"></i>
+                    </div>
+                    <div class="col-auto">
+                        <h6>{{ $clientes->where('estado_usuario_id', 2)->count() }} Revisar</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <i class="fas fa-solid fa-users text-danger"></i>
+                    </div>
+                    <div class="col-auto">
+                        <h6>{{ $clientes->where('estado_usuario_id', 3)->count() }} Renuncias</h6>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <i class="fas fa-solid fa-users text-warning"></i>
-                </div>
-                <div class="col-auto">
-                    <h6>{{ $clientes->where('estado_usuario_id', 2)->count() }} Revisar</h6>
-                </div>
+            <div class="col">
+                <h6>
+                    <span>{{ $clientes->where('estado_usuario_id', 0)->count() }}</span>
+                    <span>/</span>
+                    <span>{{ $clientes->count() }}</span>
+                </h6>
+                <h6>
+                    {{ number_format(($clientes->where('estado_usuario_id', 0)->count() / $clientes->count()) * 100, 2) }}%
+                </h6>
             </div>
-            <div class="row">
-                <div class="col">
-                    <i class="fas fa-solid fa-users text-danger"></i>
-                </div>
-                <div class="col-auto">
-                    <h6>{{ $clientes->where('estado_usuario_id', 3)->count() }} Renuncias</h6>
-                </div>
-            </div>
-        </div>
-        <div class="float-right p-2 m-2">
-            <h6><span>{{ $clientes->where('estado_usuario_id', 0)->count() }}</span>/<span>{{ $clientes->count() }}</span></h6>
-            <h6>
-                {{ number_format(($clientes->where('estado_usuario_id', 0)->count() / $clientes->count()) * 100, 2) }}%
-            </h6>
         </div>
     </div>
     <h4 style="text-align: center;">Reporte de Usuarios y Veredas</h4>
