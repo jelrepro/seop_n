@@ -51,7 +51,7 @@ Route::resource('admin/contratos', ContratoController::class)
 Route::resource('admin/veredas', VeredaController::class)
     ->middleware('auth.admin');
     
-Route::get('admin/veredas/imprimir', [VeredaController::class, 'index'])
+Route::get('admin/veredas/usuarios/imprimir', [VeredaController::class, 'imprimir'])
     ->name('veredas.imprimir')
     ->middleware('auth.admin');
     

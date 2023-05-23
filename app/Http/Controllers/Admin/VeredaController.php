@@ -27,18 +27,16 @@ class VeredaController extends Controller
 
     public function imprimir()
     {
-        // $clientes = Cliente::with(['vereda', 'tipoUsuario', 'estadoUsuario'])->get();
+        $clientes = Cliente::with(['vereda', 'tipoUsuario', 'estadoUsuario'])->get();
 
-        // $veredas = Vereda::all();
+        $veredas = Vereda::all();
 
         // $fecha = date(y-m-d);
-        // $data = compact('clientes', 'veredas');
-        // $pdf = PDF::loadView('pdf.reporteveredas', $data);
+        $data = compact('clientes', 'veredas');
+        $pdf = PDF::loadView('pdf.reporteveredas', $data);
 
-        // return $pdf->stream();
+        return $pdf->stream();
         // return $pdf->download('invoice.pdf');
-
-        return view('admin.proyectos.index');
     }
 
     /**

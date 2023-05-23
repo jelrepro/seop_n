@@ -7,7 +7,7 @@
     <div class="button-group">
         <div class="float-right">
                 
-            <a href="{{ route('veredas.imprimir') }}"><button type="submit" class="btn float-left" style="background-color: purple; color: white;" name="Nuevo"><i class="fas fa-print"></i> Imprimir</button></a>
+            <a href="{{ route('veredas.imprimir') }}" target="_blank"><button type="submit" class="btn float-left" style="background-color: purple; color: white;" name="Nuevo"><i class="fas fa-print"></i> Imprimir</button></a>
             
         </div>
     </div>
